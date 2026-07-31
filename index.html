@@ -241,6 +241,8 @@
   .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:8px;}
   @media (max-width:900px){ .pillars{grid-template-columns:1fr;} }
   .pillar{padding:32px 28px; position:relative;}
+  #solucoes .pillars{grid-template-columns:repeat(2,1fr); max-width:960px; margin-left:auto; margin-right:auto;}
+  #solucoes .pillar{padding:40px 36px;}
   .pillar .num{font-family:var(--font-mono); font-size:12px; color:var(--green); letter-spacing:.1em;}
   .pillar .ic{width:52px; height:52px; border-radius:14px; margin:16px 0 18px; display:flex; align-items:center; justify-content:center;
     background:linear-gradient(135deg, rgba(47,217,138,.16), rgba(61,132,207,.10)); border:1px solid var(--line);}
@@ -259,6 +261,12 @@
   .step .n{font-family:var(--font-mono); font-size:11px; color:var(--green); letter-spacing:.12em;}
   .step h4{font-size:16px; margin-top:8px; color:var(--ink);}
   .step p{font-size:13.5px; color:var(--muted); margin-top:6px; line-height:1.55;}
+  .step ul{margin-top:10px; display:flex; flex-direction:column; gap:5px;}
+  .step ul li{font-size:12.5px; color:var(--muted); line-height:1.5; padding-left:14px; position:relative;}
+  .step ul li::before{content:""; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; background:var(--green); opacity:.7;}
+  #bess .bess-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:36px;}
+  @media (max-width:900px){ #bess .bess-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:600px){ #bess .bess-grid{grid-template-columns:1fr;} }
   .step-arrow{position:absolute; top:50%; right:-22px; transform:translateY(-50%); color:var(--green); font-family:var(--font-mono);}
   @media (max-width:760px){ .step-arrow{display:none;} }
 
@@ -438,9 +446,9 @@
 <section class="hero spot" id="topo">
   <div class="wrap herogrid">
     <div class="hero-copy">
-      <span class="eyebrow">Energia inteligente para negócios que não podem parar</span>
-      <h1>A energia certa, no <em>momento certo</em>, para o seu negócio nunca parar.</h1>
-      <p class="lede">Armazenamento inteligente de energia, locação estratégica de equipamentos e estruturação financeira em uma única estratégia, construída para reduzir riscos, custos e imprevistos.</p>
+      <span class="eyebrow">Tecnologia, Energia e Soluções Inteligentes</span>
+      <h1>Mais segurança, eficiência e continuidade para tudo que não pode parar.</h1>
+      <p class="lede">A MLC conecta armazenamento de energia, equipamentos e modelos flexíveis de contratação para condomínios, residências, empresas e diferentes operações.</p>
       <div class="btnrow">
         <a class="btn btn-primary" href="https://wa.me/5518981413370?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20da%20MLC%20Neg%C3%B3cios." target="_blank" rel="noopener">Falar com um especialista</a>
         <a class="btn btn-ghost" href="#bess">Conhecer a tecnologia BESS</a>
@@ -530,27 +538,27 @@
     <div class="painlist reveal">
       <div class="pain">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
-        <div><b>Interrupções no fornecimento</b><span>Paradas de produção, perda de receita e risco à operação.</span></div>
+        <div><b>Falhas e instabilidades de energia</b><span>Quedas e oscilações podem interromper serviços essenciais, comprometer equipamentos e gerar prejuízos inesperados.</span></div>
       </div>
       <div class="pain">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
-        <div><b>Custos de energia em alta</b><span>Tarifas crescentes corroem a margem sem que a empresa perceba.</span></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2C7 6 5 10 5 13a7 7 0 0 0 14 0c0-3-2-7-7-11z"/></svg></div>
+        <div><b>Energia sem estratégia</b><span>Consumir energia sem gestão inteligente pode aumentar custos e limitar a eficiência da operação.</span></div>
       </div>
       <div class="pain">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6"/></svg></div>
-        <div><b>Equipamentos sensíveis expostos</b><span>Oscilações danificam ativos de alto valor agregado.</span></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div><b>Equipamentos parados, operações limitadas</b><span>Quando equipamentos essenciais param, toda a operação sente o impacto.</span></div>
       </div>
       <div class="pain">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M3 11h18"/><circle cx="7" cy="15" r="1"/></svg></div>
-        <div><b>Capital imobilizado</b><span>Comprar equipamentos trava caixa que poderia expandir o negócio.</span></div>
+        <div><b>Alto investimento para evoluir</b><span>Muitas vezes, o desafio não é saber o que precisa ser feito, mas viabilizar o investimento necessário.</span></div>
       </div>
       <div class="pain">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
-        <div><b>Acesso limitado a crédito</b><span>Crescer nem sempre é vontade, muitas vezes é estrutura financeira.</span></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6"/></svg></div>
+        <div><b>Falta de acesso aos ativos certos</b><span>Comprar nem sempre é o melhor caminho. Modelos flexíveis podem acelerar projetos e preservar recursos.</span></div>
       </div>
       <div class="pain">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7.5 11 16M16 7.5 13 16M8.4 6h7.2"/></svg></div>
-        <div><b>Decisões tratadas isoladamente</b><span>Energia, ativos e capital são, na prática, uma mesma estratégia.</span></div>
+        <div><b>Soluções desconectadas</b><span>Energia, equipamentos e recursos financeiros precisam trabalhar juntos para gerar eficiência e crescimento.</span></div>
       </div>
     </div>
   </div>
@@ -561,30 +569,23 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Inteligência antes da solução</span>
-      <h2 style="font-size:clamp(24px,3.2vw,34px);">Três frentes. Uma única estratégia.</h2>
-      <p class="lede">Antes de recomendar qualquer produto, entendemos profundamente a operação do cliente. Só depois estruturamos o que realmente gera resultado, isolado ou combinado.</p>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Duas formas de viabilizar a solução que sua operação precisa.</h2>
+      <p class="lede">A MLC conecta tecnologia, equipamentos e modelos flexíveis de contratação para entregar soluções adequadas à necessidade de cada cliente.</p>
     </div>
     <div class="pillars reveal-stagger">
       <div class="pillar glass glass-hover spot">
         <span class="num">01</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3M15 3v3M9 18h6"/><path d="M13 8 9 13h3l-1 4 5-6h-3z"/></svg></div>
-        <h3>Armazenamento Inteligente de Energia (BESS)</h3>
-        <p>Continuidade operacional e autonomia energética com tecnologia NEOX: a energia certa, guardada para o momento em que mais vale.</p>
-        <a class="tag" href="#bess">Ver como funciona <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3>Aquisição de Equipamentos e Soluções</h3>
+        <p>Tecnologia e infraestrutura para operações que precisam evoluir. Projetos personalizados envolvendo armazenamento inteligente de energia, infraestrutura e equipamentos estratégicos para empresas que buscam mais eficiência, segurança e competitividade.</p>
+        <a class="tag" href="#contato">Conhecer soluções <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="pillar glass glass-hover spot">
         <span class="num">02</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 17l4-8 4 5 3-4 4 6"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg></div>
         <h3>Locação Estratégica de Equipamentos</h3>
-        <p>Modernize a operação comercial, industrial ou agro sem imobilizar capital nem comprometer o caixa.</p>
-        <a class="tag" href="#contato">Simular locação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="pillar glass glass-hover spot">
-        <span class="num">03</span>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19h16"/><path d="M7 19v-5M12 19V8M17 19v-9"/><path d="M14 5l3-2 3 2.5"/></svg></div>
-        <h3>Estruturação Financeira</h3>
-        <p>Apoio na obtenção de linhas de crédito e recursos para expandir, modernizar e investir com segurança.</p>
-        <a class="tag" href="#contato">Falar sobre crédito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p>Mais capacidade operacional sem comprometer o capital. Modelos de locação que permitem utilizar equipamentos de alto valor agregado sem necessidade de grandes investimentos iniciais.</p>
+        <a class="tag" href="#contato">Conhecer opções de locação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -596,36 +597,77 @@
     <div class="bess-inner reveal">
       <div class="section-head" style="margin-bottom:0;">
         <span class="eyebrow">Tecnologia NEOX Energia</span>
-        <h2 style="font-size:clamp(24px,3.2vw,34px);">Energia guardada quando custa menos. Disponível quando você mais precisa.</h2>
-        <p class="lede">BESS (Battery Energy Storage System) é o sistema que armazena energia da rede ou de fontes solares e a libera de forma automática e inteligente, no instante em que gera mais valor.</p>
+        <h2 style="font-size:clamp(24px,3.2vw,34px);">A energia do futuro: armazenada, gerenciada e disponível no momento certo.</h2>
+        <p class="lede">O BESS (Battery Energy Storage System) é uma tecnologia que armazena energia da rede elétrica ou de fontes renováveis e a disponibiliza automaticamente para garantir continuidade, eficiência e segurança para diferentes operações.</p>
       </div>
 
       <div class="steps">
         <div class="step glass">
           <span class="n">01 · CARREGA</span>
-          <h4>Excedente vira reserva</h4>
-          <p>Nos horários de menor tarifa ou com excedente de energia solar.</p>
+          <h4>A energia vira reserva estratégica</h4>
+          <p>O sistema armazena energia em momentos estratégicos, como períodos de menor custo ou excedentes da geração solar.</p>
+          <p style="margin-top:10px; font-size:12.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.06em;">Fontes possíveis:</p>
+          <ul>
+            <li>Rede elétrica</li>
+            <li>Energia solar</li>
+            <li>Outras fontes renováveis</li>
+          </ul>
           <span class="step-arrow">→</span>
         </div>
         <div class="step glass">
           <span class="n">02 · ARMAZENA</span>
-          <h4>Baterias LFP monitoradas</h4>
-          <p>Tecnologia de lítio de alta durabilidade, com gestão em tempo real.</p>
+          <h4>Baterias inteligentes de alta performance</h4>
+          <p>A energia fica armazenada em baterias de tecnologia LFP (Lithium Iron Phosphate), reconhecidas pela segurança, estabilidade e longa vida útil.</p>
+          <p style="margin-top:10px; font-size:12.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.06em;">O sistema realiza:</p>
+          <ul>
+            <li>Monitoramento em tempo real</li>
+            <li>Gestão inteligente da carga</li>
+            <li>Controle de temperatura</li>
+            <li>Proteções contra sobrecarga e descarga</li>
+          </ul>
           <span class="step-arrow">→</span>
         </div>
         <div class="step glass">
-          <span class="n">03 · LIBERA</span>
-          <h4>No momento certo</h4>
-          <p>No pico de consumo, em tarifa alta ou durante uma queda de energia.</p>
+          <span class="n">03 · ENTREGA</span>
+          <h4>Energia disponível no momento certo</h4>
+          <p>Quando a operação precisa, o sistema libera a energia armazenada.</p>
+          <p style="margin-top:10px; font-size:12.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.06em;">Aplicações:</p>
+          <ul>
+            <li>Quedas de energia</li>
+            <li>Oscilações da rede</li>
+            <li>Horários de tarifa elevada</li>
+            <li>Picos de demanda</li>
+            <li>Maior necessidade operacional</li>
+          </ul>
         </div>
       </div>
 
-      <div class="specstrip">
-        <div class="spec"><b>0,4<span style="font-size:14px;">ms</span></b><span>Resposta instantânea</span></div>
-        <div class="spec"><b data-count-to="8000">0</b><span>Ciclos de vida útil</span></div>
-        <div class="spec"><b data-count-to="20">0</b><span>Anos de vida útil</span></div>
-        <div class="spec"><b>LFP</b><span>Tecnologia mais segura</span></div>
-        <div class="spec"><b>Zero</b><span>Emissões de carbono</span></div>
+      <div class="bess-grid">
+        <div class="glass" style="padding:24px 18px; text-align:center;">
+          <div style="font-family:var(--font-display); font-size:28px; color:var(--green); font-variant-numeric:tabular-nums;">0,4<span style="font-size:14px;">ms</span></div>
+          <div style="font-size:13px; color:var(--ink); margin-top:6px; font-weight:600;">Resposta instantânea</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5;">Transição rápida para manter equipamentos essenciais funcionando.</div>
+        </div>
+        <div class="glass" style="padding:24px 18px; text-align:center;">
+          <div style="font-family:var(--font-display); font-size:28px; color:var(--green); font-variant-numeric:tabular-nums;">Até 8.000</div>
+          <div style="font-size:13px; color:var(--ink); margin-top:6px; font-weight:600;">Alta durabilidade</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5;">Tecnologia projetada para milhares de ciclos de carga e descarga.</div>
+        </div>
+        <div class="glass" style="padding:24px 18px; text-align:center;">
+          <div style="font-family:var(--font-display); font-size:28px; color:var(--green); font-variant-numeric:tabular-nums;">+20 anos</div>
+          <div style="font-size:13px; color:var(--ink); margin-top:6px; font-weight:600;">Vida útil prolongada</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5;">Soluções desenvolvidas para operações de longo prazo.</div>
+        </div>
+        <div class="glass" style="padding:24px 18px; text-align:center;">
+          <div style="font-family:var(--font-display); font-size:28px; color:var(--green);">LFP</div>
+          <div style="font-size:13px; color:var(--ink); margin-top:6px; font-weight:600;">Mais segurança e estabilidade</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5;">Química de bateria reconhecida pela segurança térmica e confiabilidade.</div>
+        </div>
+        <div class="glass" style="padding:24px 18px; text-align:center;">
+          <div style="font-family:var(--font-display); font-size:28px; color:var(--green);">Zero</div>
+          <div style="font-size:13px; color:var(--ink); margin-top:6px; font-weight:600;">Emissão durante operação</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5;">Funcionamento silencioso e sem emissão direta de carbono durante o uso.</div>
+        </div>
       </div>
 
       <div class="btnrow" style="margin-top:30px;">
@@ -640,17 +682,18 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">O que você ganha</span>
-      <h2 style="font-size:clamp(22px,3vw,28px);">Benefícios que vão além do fornecimento de energia.</h2>
+      <h2 style="font-size:clamp(22px,3vw,28px);">Benefícios que vão além do armazenamento de energia.</h2>
+      <p class="lede">O BESS transforma energia em uma estratégia inteligente, trazendo mais segurança, eficiência e controle para operações que precisam de continuidade.</p>
     </div>
     <div class="benefits reveal-stagger">
       <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>Continuidade operacional</div>
       <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>Segurança energética</div>
-      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>Redução de custos</div>
-      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19h16M4 19V7l4-3 4 3 4-3 4 3v12"/></svg>Previsibilidade financeira</div>
+      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>Gestão e redução de custos</div>
+      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19h16M4 19V7l4-3 4 3 4-3 4 3v12"/></svg>Mais previsibilidade operacional</div>
       <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>Proteção de equipamentos</div>
-      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2C7 6 5 10 5 13a7 7 0 0 0 14 0c0-3-2-7-7-11z"/></svg>Sustentabilidade &amp; ESG</div>
-      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21V9l6-4 6 4v12M9 21V13h6v8"/></svg>Valorização do patrimônio</div>
-      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Independência energética</div>
+      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2C7 6 5 10 5 13a7 7 0 0 0 14 0c0-3-2-7-7-11z"/></svg>Integração com energia renovável</div>
+      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21V9l6-4 6 4v12M9 21V13h6v8"/></svg>Valorização da infraestrutura</div>
+      <div class="benefit glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>Eficiência e sustentabilidade</div>
     </div>
   </div>
 </section>
@@ -660,17 +703,18 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Para quem resolvemos</span>
-      <h2 style="font-size:clamp(24px,3.2vw,34px);">Cada setor, um risco diferente. Uma resposta sob medida.</h2>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Cada operação possui um desafio. A solução certa depende da necessidade.</h2>
+      <p class="lede">A MLC estrutura soluções de energia inteligente e equipamentos para diferentes setores, considerando a demanda, o nível de criticidade e o objetivo de cada operação.</p>
     </div>
     <div class="sectors reveal-stagger">
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18M5 21V8l5-4 5 4v13M15 21v-7h4v7"/></svg></div><b>Indústrias</b><span>Evita perdas produtivas em operações contínuas.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 9l1-5h14l1 5M4 9v10h16V9M4 9h16"/></svg></div><b>Comércio</b><span>Mantém o atendimento e reduz custo de energia.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/></svg></div><b>Agronegócio</b><span>Autonomia para irrigação e equipamentos produtivos.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg></div><b>Condomínios</b><span>Elevadores, portarias e áreas comuns sempre ativos.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><path d="M9 11h2l1-2 1 4 1-2h1"/></svg></div><b>Clínicas &amp; diagnóstico</b><span>Protege equipamentos de altíssimo valor agregado.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/></svg></div><b>Data centers</b><span>Disponibilidade contínua e confiabilidade operacional.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-5h6v5M9 7h.01M15 7h.01M9 11h.01M15 11h.01"/></svg></div><b>Escritórios &amp; serviços</b><span>Continuidade da atividade profissional.</span></div>
-      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg></div><b>Residências de alto padrão</b><span>Autonomia energética e proteção patrimonial.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18M5 21V8l5-4 5 4v13M15 21v-7h4v7"/></svg></div><b>Indústrias</b><span>Continuidade produtiva, redução de custos energéticos e proteção da operação.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 9l1-5h14l1 5M4 9v10h16V9M4 9h16"/></svg></div><b>Comércio</b><span>Mais segurança para atendimento, equipamentos e redução de despesas energéticas.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/></svg></div><b>Agronegócio</b><span>Energia para manter irrigação, equipamentos e produtividade.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg></div><b>Condomínios</b><span>Segurança para elevadores, portarias, iluminação e áreas comuns.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><path d="M9 11h2l1-2 1 4 1-2h1"/></svg></div><b>Clínicas e Diagnóstico por Imagem</b><span>Proteção para equipamentos sensíveis e serviços essenciais.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/></svg></div><b>Data Centers</b><span>Alta disponibilidade para operações críticas.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-5h6v5M9 7h.01M15 7h.01M9 11h.01M15 11h.01"/></svg></div><b>Escritórios e Serviços</b><span>Continuidade para profissionais e empresas que dependem da tecnologia.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg></div><b>Residências de Alto Padrão</b><span>Autonomia energética, conforto e proteção para quem trabalha em home office ou depende da conectividade.</span></div>
     </div>
   </div>
 </section>
@@ -680,20 +724,21 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Como trabalhamos</span>
-      <h2 style="font-size:clamp(24px,3.2vw,34px);">Ouvir antes de recomendar.</h2>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Inteligência antes da solução.</h2>
+      <p class="lede">Cada projeto começa pelo entendimento profundo da operação, dos desafios e dos objetivos do cliente. Só depois estruturamos a solução mais adequada.</p>
     </div>
     <div class="method reveal">
-      <div class="mstep"><span class="n">01</span><h4>Ouvir</h4><p>Compreender a realidade do cliente.</p></div>
-      <div class="mstep"><span class="n">02</span><h4>Diagnosticar</h4><p>Analisar aspectos técnicos, operacionais e financeiros.</p></div>
-      <div class="mstep"><span class="n">03</span><h4>Estruturar</h4><p>Desenhar uma solução personalizada e integrada.</p></div>
-      <div class="mstep"><span class="n">04</span><h4>Implementar</h4><p>Executar com qualidade, planejamento e transparência.</p></div>
-      <div class="mstep"><span class="n">05</span><h4>Evoluir</h4><p>Acompanhar resultados e novas oportunidades.</p></div>
+      <div class="mstep"><span class="n">01</span><h4>Ouvir</h4><p>Entender antes de recomendar. Compreendemos a realidade do cliente, seus desafios operacionais, financeiros e estratégicos.</p></div>
+      <div class="mstep"><span class="n">02</span><h4>Diagnosticar</h4><p>Analisar oportunidades e riscos. Avaliamos infraestrutura, necessidades energéticas, capacidade operacional e objetivos de crescimento.</p></div>
+      <div class="mstep"><span class="n">03</span><h4>Estruturar</h4><p>Criar uma solução sob medida. Conectamos tecnologia, equipamentos, parceiros e modelos financeiros para desenvolver a melhor estratégia.</p></div>
+      <div class="mstep"><span class="n">04</span><h4>Implementar</h4><p>Transformar planejamento em resultado. Coordenamos a execução com organização, transparência e acompanhamento técnico.</p></div>
+      <div class="mstep"><span class="n">05</span><h4>Evoluir</h4><p>Continuar gerando valor após a entrega. Acompanhamos resultados, identificamos novas oportunidades e fortalecemos a parceria no longo prazo.</p></div>
     </div>
     <div class="diffgrid reveal-stagger">
-      <div class="diffitem"><b>Consultoria antes da solução</b><span>Cada projeto começa pelo entendimento do cliente, não pelo produto.</span></div>
-      <div class="diffitem"><b>Visão estratégica do negócio</b><span>Analisamos a operação como um todo, não só o pedido inicial.</span></div>
-      <div class="diffitem"><b>Soluções completas e integradas</b><span>Energia, ativos e capital numa só frente, quando fizer sentido.</span></div>
-      <div class="diffitem"><b>Tecnologia de ponta e parcerias sólidas</b><span>NEOX, GRENKE e Renda Mais sustentam a entrega.</span></div>
+      <div class="diffitem"><b>Consultoria antes da solução</b><span>Cada projeto começa pelo entendimento do desafio, não pela oferta de um produto.</span></div>
+      <div class="diffitem"><b>Visão estratégica do negócio</b><span>Analisamos a operação como um todo para encontrar oportunidades além da necessidade inicial.</span></div>
+      <div class="diffitem"><b>Soluções integradas</b><span>Energia, infraestrutura, equipamentos e capital conectados em uma única estratégia.</span></div>
+      <div class="diffitem"><b>Ecossistema estratégico</b><span>Tecnologias e parceiros especializados para construir soluções completas.</span></div>
     </div>
   </div>
 </section>
@@ -702,48 +747,25 @@
 <section class="section" id="parceiros">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Tecnologia nacional, parcerias sólidas</span>
-      <h2 style="font-size:clamp(24px,3.2vw,34px);">Um ecossistema de confiança.</h2>
+      <span class="eyebrow">Tecnologia nacional, parcerias estratégicas</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Um ecossistema preparado para viabilizar soluções inteligentes.</h2>
+      <p class="lede">A MLC conecta tecnologia, equipamentos e parceiros especializados para entregar soluções completas em energia, locação e projetos estratégicos.</p>
     </div>
     <div class="partners reveal-stagger">
       <div class="partner glass glass-hover spot">
         <span class="prole">Tecnologia BESS</span>
         <div class="plogo">NEOX <span style="color:var(--green);">Energia</span></div>
-        <p>Fabricante nacional dos sistemas de armazenamento, com engenharia própria e suporte local.</p>
+        <p>Sistemas nacionais de armazenamento inteligente de energia. Parceiro tecnológico responsável pelos sistemas BESS, com equipamentos de alta performance, engenharia especializada e suporte local para aplicações residenciais, comerciais e industriais.</p>
       </div>
       <div class="partner glass glass-hover spot">
-        <span class="prole">Locação estratégica</span>
+        <span class="prole">Locação e equipamentos</span>
         <div class="plogo">GRENKE</div>
-        <p>Estruturação das operações de locação de equipamentos, com flexibilidade financeira.</p>
-      </div>
-      <div class="partner glass glass-hover spot">
-        <span class="prole">Estruturação financeira</span>
-        <div class="plogo">Renda Mais</div>
-        <p>Apoio na captação de recursos e estruturação de aportes para expansão.</p>
+        <p>Estrutura para tornar equipamentos estratégicos mais acessíveis. Parceiro especializado em modelos de locação, permitindo que empresas e operações tenham acesso a equipamentos sem necessidade de imobilizar grandes volumes de capital.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SIMULACAO ============ -->
-<section class="section" id="simulacao" style="padding-top:0;">
-  <div class="wrap">
-    <div class="simwrap glass reveal">
-      <span class="eyebrow" style="margin-bottom:6px;">Na prática</span>
-      <h2 style="font-size:clamp(22px,3vw,28px);">Um investimento que cabe no orçamento.</h2>
-      <p class="lede" style="margin-top:14px;">Exemplo ilustrativo para um condomínio de 20 andares (4 apartamentos por andar), com investimento total de R$ 80.000,00 em locação estratégica de BESS.</p>
-      <span class="simhead" style="display:block; margin-top:26px;">Simulação de rateio por apartamento</span>
-      <div class="simgrid">
-        <div class="simcard"><div class="val">R$ <span data-count-to="40.18" data-decimals="2">0</span></div><div class="lbl">por mês · locação em 36 meses</div></div>
-        <div class="simcard"><div class="val">R$ <span data-count-to="27.06" data-decimals="2">0</span></div><div class="lbl">por mês · locação em 72 meses</div></div>
-      </div>
-      <p class="simfoot">* Valores ilustrativos, calculados sobre um cenário específico. O valor real depende do porte do imóvel/empresa e é definido após diagnóstico.</p>
-      <div class="btnrow" style="margin-top:22px;">
-        <a class="btn btn-primary" href="#contato">Simular o meu caso</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ FAQ ============ -->
 <section class="section" id="faq">
