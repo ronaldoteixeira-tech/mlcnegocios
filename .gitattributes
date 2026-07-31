@@ -1,0 +1,10 @@
+# Normaliza finais de linha para LF
+* text=auto
+
+# Arquivos binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary

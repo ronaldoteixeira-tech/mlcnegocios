@@ -1,0 +1,23 @@
+# ===== Arquivos internos / não publicáveis =====
+# Documentos de trabalho e manuais (mantidos apenas localmente)
+*.docx
+*.pdf
+
+# Logo antiga não utilizada
+LOGO MLC.png
+
+# ===== Sistema operacional =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== Editores / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Logs / temporários =====
+*.log
+npm-debug.log*
+.DS_Store

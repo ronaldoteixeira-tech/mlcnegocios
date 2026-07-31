@@ -1,0 +1,5 @@
+# Cloudflare Pages — regras de redirecionamento
+# Descomente e ajuste o domínio quando estiver definido.
+
+# Forçar https:// sem www (apex)
+# https://www.mlcnegocios.com.br/* https://mlcnegocios.com.br/:splat 301
