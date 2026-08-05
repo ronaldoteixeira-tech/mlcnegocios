@@ -6,6 +6,12 @@
 # Logo antiga não utilizada
 LOGO MLC.png
 
+# Material de referência (não faz parte do site publicado)
+/referencia/
+
+# Backup de rascunho antigo (versão de página única pré-refatoração)
+/index - Copia.html
+
 # ===== Sistema operacional =====
 .DS_Store
 Thumbs.db

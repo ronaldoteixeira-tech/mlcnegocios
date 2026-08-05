@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BESS — Armazenamento Inteligente de Energia | MLC Negócios</title>
+<meta name="description" content="BESS: armazenamento inteligente de energia para empresas que não podem parar. Conheça a tecnologia, benefícios e aplicações do Battery Energy Storage System." />
+<meta name="theme-color" content="#F8FAFC" />
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAUEBAQEAwUEBAQGBQUGCA0ICAcHCBALDAkNExAUExIQEhIUFx0ZFBYcFhISGiMaHB4fISEhFBkkJyQgJh0gISD/2wBDAQUGBggHCA8ICA8gFRIVICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCABgAGADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAAPwD7KooooAKKKKACis7V9c0nQbL7Zq99FaRHhd55c+ijqT9K881T4z6bbhv7L0ee7A6PNIIgfwwTQeZjM1weCdsRUUX23f3LU9UorwWT4+6hFJ83hiB09BdMD/6DSaz8eVu/D3/En0240/V0nicLKVkiZA2WXcMHkDHQdaDjjxBl8ouUam3k/wBT3uisXwx4jsPFXhy21rTziOYYeMnLROPvIfcfqMHvW1Qe5CcakVODumFFFFBYUUUUAFYPi7xRp/g7wrea/qJzHAuI4wcNNIeFQe5P5DJ7VvV85/tHas7X+j6VIpaysoTfSRZ4mmdjHCp9htkJ9gfWmld2Ry4uq6NGU47/ANfkeaa342utW1FvEHim+JlmyYbdBuITPCxp2UepwD6k1R03WvFni7UP7K8G+Ezdy9SZWLlB6sRtVB9TWFoPhzUvFfiezsFfzL3UJlj8xxwo7nHooycDsK+5PCfhPRvBnh6DRdFthFEgzJIR88793c9yf06DiqcktInwmAyijj6sq1Rc1nq3rd+S2/M+ftM+BPxMvo1l1nXPD2mlufKit5bhl+p3KPyJrk7vwzd2+u3Oj6fcDxA9u/lm4sbZ1QsOoAy3Q8ZzjivsrqMHpUcFvb2sfl21vHAn92NAo/SoPfxfDuFrQUKSUO7S19Ox4Z8KdE8eeG9eJl0OaPR7zAuVmdU2ntIoJzkfqPwr3iiig9bAYGOBo+xhJtef/DIKKKKD0AooooAK8I+P3h9r9NNvYIyzgMzgc7gnQD6B2Ne71y3jjRrnVvD4l0+Hzr6yfz4os484Yw0YPYkdPcCmjnxFFV6UqT6o8E+DttaW3xG0uWVlDskqx5/vGM/0zX1JXg9p8O9M8XRReIPB/iKXQ9UtpRJ8sQdY5VOcPGSCjZHIzj2r1G48SzaRpsK6rbpcX6oBMbb5YmbuV3cgexzj3pdTxsjwVfA0p0K2vvXTXW9v8jp6K890jx3/AGhq002q39lpOnwLhYC2ZJmPqT2HsBzita48a2MqtHo4N0/aRlKoPz5NOx9Bcf4r8TjRbrSNJtGV9T1S8ihjTrsjLje5H0yB7n2rqa8r8N6Fdat8QT4i1KRpjZgtufu5GFA9">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+<div class="ambient"><div class="blob blob-a"></div><div class="blob blob-b"></div><div class="blob blob-c"></div><div class="grain"></div></div>
+<div id="progress"></div>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="wrap navrow">
+    <a class="brand" href="/" aria-label="MLC Negócios, início">
+      <img class="brand-logo" src="/assets/img/logo-mlc-horizontal.png" alt="MLC Negócios" />
+    </a>
+    <nav class="mainnav" aria-label="Navegação principal">
+      <a href="/quem-somos/">Quem somos</a>
+      <a href="/bess/" class="active">BESS</a>
+      <a href="/locacao/">Locação</a>
+      <a href="/governanca/">Governança</a>
+      <a href="/noticias/">Notícias</a>
+      <a href="/contato/">Fale conosco</a>
+    </nav>
+    <div class="navcta">
+      <a class="btn btn-primary" href="https://wa.me/5518981413370?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20da%20MLC%20Neg%C3%B3cios." target="_blank" rel="noopener" aria-label="Falar com especialista no WhatsApp">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20l1.5-4.5A8 8 0 1 1 9 18.5z"/></svg>
+        <span class="btn-label">Falar com especialista</span>
+      </a>
+      <button class="hamb" id="hambBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobilepanel" id="mobilePanel">
+    <a href="/quem-somos/">Quem somos</a>
+    <a href="/bess/">BESS</a>
+    <a href="/locacao/">Locação</a>
+    <a href="/governanca/">Governança</a>
+    <a href="/noticias/">Notícias</a>
+    <a href="/contato/">Fale conosco</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero hero--03 spot" id="topo">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Energia inteligente para operações estratégicas</span>
+      <h1>BESS: armazenamento inteligente de energia para empresas que não podem parar.</h1>
+      <p class="lede">O Battery Energy Storage System (BESS) é uma tecnologia que armazena energia e disponibiliza de forma inteligente quando sua operação mais precisa, garantindo mais segurança, eficiência e continuidade para negócios de diferentes segmentos.</p>
+      <div class="btnrow">
+        <a class="btn btn-primary" href="https://wa.me/5518981413370?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20da%20minha%20opera%C3%A7%C3%A3o%20para%20BESS." target="_blank" rel="noopener">Solicitar análise da minha operação</a>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>role para descobrir</span><span class="chev"></span></div>
+</section>
+
+<!-- ============ O QUE É BESS ============ -->
+<section class="section" id="o-que-e">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">O que é BESS?</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Mais do que armazenar energia. É transformar energia em estratégia.</h2>
+      <p class="lede">O BESS (Battery Energy Storage System) é um sistema inteligente de armazenamento de energia composto por baterias de alta capacidade, equipamentos de gerenciamento e sistemas de controle que permitem armazenar, administrar e disponibilizar energia conforme a necessidade da operação. Diferente de soluções tradicionais de backup, o BESS atua de forma estratégica, permitindo que empresas tenham maior controle sobre sua energia, reduzam riscos operacionais e aumentem a eficiência do consumo.</p>
+    </div>
+    <p class="center reveal" style="font-size:17px; font-weight:700; color:var(--navy); max-width:60ch; margin:0 auto;">Com o BESS, a energia deixa de ser apenas um recurso disponível e passa a ser uma ferramenta de gestão.</p>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section section--tinted" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Energia armazenada no momento certo para ser utilizada quando realmente importa.</h2>
+      <p class="lede">O funcionamento do BESS acontece em três etapas:</p>
+    </div>
+    <div class="method method--3 reveal">
+      <div class="mstep"><span class="n">01</span><h4>Carregamento</h4><p>A energia é armazenada estrategicamente. O sistema captura energia disponível em momentos planejados, podendo utilizar a rede elétrica, geração própria ou fontes renováveis, como energia solar.</p></div>
+      <div class="mstep"><span class="n">02</span><h4>Armazenamento</h4><p>A energia permanece disponível para a operação. As baterias mantêm a energia armazenada enquanto sistemas inteligentes monitoram disponibilidade, demanda, consumo e necessidade operacional.</p></div>
+      <div class="mstep"><span class="n">03</span><h4>Descarga</h4><p>A energia é entregue quando a operação precisa. Diante de uma interrupção, instabilidade ou necessidade estratégica, o sistema disponibiliza energia rapidamente para manter equipamentos e processos funcionando.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUE O BESS É DIFERENTE ============ -->
+<section class="section" id="diferencial">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por que o BESS é diferente?</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Uma evolução em relação aos sistemas tradicionais de energia.</h2>
+      <p class="lede">Muitas empresas ainda dependem de soluções convencionais como geradores e nobreaks. Porém, cada tecnologia possui limitações.</p>
+    </div>
+    <div class="timeline timeline--3 reveal-stagger">
+      <div class="tl-step spot">
+        <span class="tl-topbar"></span>
+        <h4>Geradores</h4>
+        <p>Energia com maior complexidade operacional.</p>
+        <p class="tl-label">Podem exigir:</p>
+        <ul class="tl-list">
+          <li>Abastecimento de combustível</li>
+          <li>Manutenção constante</li>
+          <li>Espaço físico</li>
+          <li>Processos de instalação mais complexos</li>
+        </ul>
+      </div>
+      <div class="tl-step spot">
+        <span class="tl-topbar"></span>
+        <h4>Nobreaks tradicionais</h4>
+        <p>Proteção limitada para determinados cenários. Podem não atender demandas maiores de autonomia e capacidade energética.</p>
+      </div>
+      <div class="tl-step spot">
+        <span class="tl-topbar"></span>
+        <h4>BESS</h4>
+        <p>Uma solução inteligente para operações críticas. Com resposta extremamente rápida, o BESS entrega:</p>
+        <ul class="tl-list">
+          <li>Maior estabilidade</li>
+          <li>Gerenciamento inteligente</li>
+          <li>Eficiência energética</li>
+          <li>Redução de impactos operacionais</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS DO BESS ============ -->
+<section class="section section--tinted" id="beneficios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Benefícios do BESS</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Mais segurança para aquilo que não pode parar.</h2>
+      <p class="lede">O BESS gera valor para operações que precisam de energia confiável e previsibilidade.</p>
+    </div>
+    <div class="sectors reveal-stagger">
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div><b>Continuidade operacional</b><span>Reduza impactos causados por falhas e instabilidades da rede elétrica em equipamentos e processos críticos.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/></svg></div><b>Proteção de equipamentos</b><span>Energia mais estável contribui para preservar equipamentos sensíveis contra oscilações e variações.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><b>Eficiência energética</b><span>Utilize energia de forma mais inteligente, considerando demanda, disponibilidade e melhores momentos de consumo.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 4 6v6c0 5.5 3.8 9.7 8 10 4.2-.3 8-4.5 8-10V6z"/></svg></div><b>Segurança energética</b><span>Maior controle sobre a disponibilidade de energia para operações estratégicas.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 17l4-8 4 5 3-4 4 6"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg></div><b>Redução de perdas</b><span>Menos paradas inesperadas, interrupções e impactos financeiros.</span></div>
+      <div class="sector glass glass-hover"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 21 3 21 3c-5 1-10.5 1-13.5 2.5S1 15 1 15z"/></svg></div><b>Sustentabilidade</b><span>Integração com fontes renováveis e uma gestão energética mais eficiente.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUALIDADE DE ENERGIA ============ -->
+<section class="section" id="qualidade">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Qualidade de energia</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">O BESS não apenas fornece energia. Ele ajuda a melhorar sua qualidade.</h2>
+      <p class="lede">Além da continuidade operacional, o sistema atua no gerenciamento da energia entregue à operação, ajudando a reduzir impactos causados por oscilações elétricas, variações de tensão e problemas relacionados à qualidade da energia. Isso é especialmente relevante para operações com equipamentos sensíveis e processos industriais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APLICAÇÕES ============ -->
+<section class="section section--tinted" id="aplicacoes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Aplicações</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Onde o BESS gera valor?</h2>
+      <p class="lede">O BESS pode ser aplicado em diferentes segmentos que dependem de energia segura e disponível.</p>
+    </div>
+    <div class="solutions-grid reveal-stagger">
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18M5 21V8l5-4 5 4v13M15 21v-7h4v7"/></svg></div>
+        <h3>Indústrias</h3>
+        <p class="sol-desc">Produção não pode parar.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Linhas produtivas e máquinas</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Automação e motores</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Processos críticos</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> maior estabilidade operacional e redução de impactos causados por interrupções.</p></div>
+      </div>
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><path d="M9 11h2l1-2 1 4 1-2h1"/></svg></div>
+        <h3>Clínicas e Diagnóstico por Imagem</h3>
+        <p class="sol-desc">Equipamentos críticos precisam de energia confiável.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Tomografia e ressonância</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Equipamentos médicos</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Sistemas essenciais</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> mais segurança para manter atendimentos e operações.</p></div>
+      </div>
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+        <h3>Data Centers</h3>
+        <p class="sol-desc">Disponibilidade é indispensável.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Servidores</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Infraestrutura digital</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Sistemas críticos</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> maior proteção para operações que dependem de alta disponibilidade.</p></div>
+      </div>
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg></div>
+        <h3>Condomínios</h3>
+        <p class="sol-desc">Mais segurança para estruturas essenciais.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Elevadores e portarias</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Sistemas de segurança</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Áreas comuns</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> continuidade para serviços importantes do condomínio.</p></div>
+      </div>
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/></svg></div>
+        <h3>Agronegócio</h3>
+        <p class="sol-desc">Energia para operações produtivas.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Irrigação e armazenagem</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Equipamentos agrícolas</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Estruturas rurais</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> mais segurança para operações que dependem de energia.</p></div>
+      </div>
+      <div class="sol-card spot">
+        <span class="sol-topbar"></span>
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 9l1-5h14l1 5M4 9v10h16V9M4 9h16"/></svg></div>
+        <h3>Comércio e Empresas</h3>
+        <p class="sol-desc">Operações conectadas precisam continuar funcionando.</p>
+        <div class="sol-apps">
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Sistemas e internet</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Equipamentos</div>
+          <div class="sol-app"><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg></span>Atendimento</div>
+        </div>
+        <div class="sol-more"><p style="font-size:13px; color:var(--muted); line-height:1.6;"><strong>Benefício:</strong> redução de impactos na rotina operacional.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCAÇÃO DE BESS ============ -->
+<section class="section" id="locacao-bess">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Locação de BESS</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">Tenha acesso à tecnologia sem comprometer o capital da empresa.</h2>
+      <p class="lede">A MLC também estrutura modelos de locação para empresas que desejam utilizar soluções BESS sem realizar grandes investimentos iniciais. A locação permite:</p>
+    </div>
+    <div class="pos-checklist reveal" style="flex-direction:row; flex-wrap:wrap; justify-content:center; gap:20px 28px; max-width:900px; margin:0 auto;">
+      <div class="pos-check"><span class="dot"></span> Preservar capital de giro</div>
+      <div class="pos-check"><span class="dot"></span> Acelerar projetos</div>
+      <div class="pos-check"><span class="dot"></span> Acesso à tecnologia atualizada</div>
+      <div class="pos-check"><span class="dot"></span> Evitar imobilização de ativos</div>
+      <div class="pos-check"><span class="dot"></span> Aumentar flexibilidade operacional</div>
+    </div>
+    <p class="center reveal" style="font-size:17px; font-weight:700; color:var(--navy); max-width:56ch; margin:28px auto 0;">A melhor solução não é apenas possuir uma tecnologia. É utilizá-la de forma estratégica para gerar resultado.</p>
+    <div class="reveal" style="text-align:center; margin-top:26px;">
+      <a class="btn btn-ghost" href="/locacao/">Conhecer a locação</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO A MLC ENTREGA O BESS ============ -->
+<section class="section section--tinted" id="entrega">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como a MLC entrega o BESS</span>
+      <h2 style="font-size:clamp(24px,3.2vw,34px);">A tecnologia certa começa com o diagnóstico correto.</h2>
+      <p class="lede">A MLC não entrega apenas um equipamento. Antes de qualquer projeto, analisamos:</p>
+    </div>
+    <div class="pos-checklist reveal" style="flex-direction:row; flex-wrap:wrap; justify-content:center; gap:20px 28px; max-width:900px; margin:0 auto;">
+      <div class="pos-check"><span class="dot"></span> Necessidade energética</div>
+      <div class="pos-check"><span class="dot"></span> Perfil da operação</div>
+      <div class="pos-check"><span class="dot"></span> Equipamentos envolvidos</div>
+      <div class="pos-check"><span class="dot"></span> Objetivo do investimento</div>
+      <div class="pos-check"><span class="dot"></span> Melhor modelo de contratação</div>
+    </div>
+    <p class="lede center reveal" style="margin-top:28px;">A partir disso, estruturamos a solução mais adequada para cada cenário.</p>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="section section--tinted">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow center" style="justify-content:center;">Vamos conversar?</span>
+      <h2>Sua operação depende de energia. Nós ajudamos você a torná-la mais inteligente.</h2>
+      <p>Descubra como o BESS pode aumentar a segurança, eficiência e continuidade do seu negócio.</p>
+      <div class="btnrow">
+        <a class="btn btn-primary" href="https://wa.me/5518981413370?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20BESS." target="_blank" rel="noopener">Falar com especialista</a>
+        <a class="btn btn-outline-light" href="/contato/">Fale conosco</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="footbrand">
+          <img class="brand-logo" src="/assets/img/logo-mlc-horizontal.png" alt="MLC Negócios" />
+        </div>
+        <p class="tagline">Soluções Estratégicas para um Futuro Inteligente.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5c0-1.4 1-2.5 2.3-2.5S16 11.1 16 12.5V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 10l4 2-4 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footcol">
+        <h5>Navegação</h5>
+        <a href="/quem-somos/">Quem somos</a><a href="/governanca/">Governança</a><a href="/noticias/">Notícias</a><a href="/contato/">Fale conosco</a>
+      </div>
+      <div class="footcol">
+        <h5>Soluções</h5>
+        <a href="/bess/">Energia Inteligente (BESS)</a><a href="/locacao/">Locação estratégica</a><a href="/#solucoes">Estruturação de projetos</a>
+      </div>
+      <div class="footcol">
+        <h5>Contato</h5>
+        <span>(18) 98141-3370</span><span>comercial@mlcnegocios.com.br</span><span>Maringá/PR</span>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>&copy; 2026 MLC Negócios. Todos os direitos reservados.</span>
+      <span>CNPJ 68.076.907/0001-78</span>
+    </div>
+  </div>
+</footer>
+
+<button id="totop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
