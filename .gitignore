@@ -1,7 +1,26 @@
 # ===== Arquivos internos / não publicáveis =====
 # Documentos de trabalho e manuais (mantidos apenas localmente)
+*.doc
 *.docx
+*.odt
 *.pdf
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.csv
+*.zip
+*.rar
+*.7z
+
+# Imagens soltas na raiz não usadas pelo site.
+# Não ignore /assets/img/: esses arquivos são necessários para renderizar as páginas.
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.gif
+/*.svg
 
 # Logo antiga não utilizada
 LOGO MLC.png
@@ -27,3 +46,7 @@ Desktop.ini
 *.log
 npm-debug.log*
 .DS_Store
+
+# Temporários do Office/LibreOffice
+.~lock.*#
+~$*
