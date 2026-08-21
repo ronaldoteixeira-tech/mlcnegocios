@@ -1,0 +1,8 @@
+{
+  "name": "mlc-negocios-site",
+  "private": true,
+  "scripts": {
+    "blog:add": "node scripts/add-blog-post.js",
+    "blog:build": "node scripts/build-blog.js"
+  }
+}

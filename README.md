@@ -5,7 +5,8 @@ Site institucional estático da **MLC Negócios**: armazenamento inteligente de 
 ## Stack
 
 - HTML5, CSS3 (variáveis de tema, grid/flexbox) e JavaScript vanilla
-- Sem dependências externas e sem build — basta servir os arquivos estáticos
+- Sem dependências externas; as páginas públicas são HTML estático
+- Gerador local em Node.js para publicar e ordenar notícias sem editar HTML manualmente
 
 ## Estrutura
 
@@ -17,6 +18,9 @@ Site institucional estático da **MLC Negócios**: armazenamento inteligente de 
 ├── bess/index.html            # BESS — armazenamento inteligente de energia (/bess/)
 ├── locacao/index.html         # Locação estratégica de equipamentos (/locacao/)
 ├── noticias/index.html        # Notícias (/noticias/)
+├── noticias/posts/            # Fontes editáveis dos artigos do blog
+├── scripts/                   # Gerador e comando de inclusão de notícias
+├── package.json               # Comandos npm do blog
 ├── contato/index.html         # Fale Conosco — formulário + canais (/contato/)
 ├── assets/
 │   ├── css/
@@ -32,7 +36,7 @@ Site institucional estático da **MLC Negócios**: armazenamento inteligente de 
 └── .gitattributes
 ```
 
-Cada página é HTML estático independente (sem templating/build), compartilhando o mesmo `assets/css/style.css` e `assets/js/main.js` via caminhos absolutos (`/assets/...`). Header e footer são duplicados em cada arquivo — é a abordagem mais simples e confiável para um site multi-página sem etapa de build.
+Cada página pública é HTML estático independente, compartilhando `assets/css/style.css` e `assets/js/main.js` via caminhos absolutos (`/assets/...`). Os artigos são gerados localmente a partir de `noticias/posts/`; os arquivos HTML gerados devem ser versionados normalmente, por isso o deploy continua sem etapa de build.
 
 **Rotas limpas:** cada seção vive em sua própria pasta com um `index.html` (ex.: `bess/index.html`), então a URL pública não expõe a extensão `.html` — `/bess/` em vez de `/bess.html`. Esse é o padrão de roteamento estático que funciona em qualquer host (Cloudflare Pages, Netlify, GitHub Pages, etc.), sem depender de resolução automática de extensão específica de uma plataforma.
 
@@ -47,6 +51,16 @@ npx serve .
 # Python
 python -m http.server 8080
 ```
+
+## Publicar uma notícia
+
+Salve o título na primeira linha de um arquivo de texto, coloque o conteúdo nas linhas seguintes e execute:
+
+```bash
+.\publicar-noticia.cmd "caminho/do/novo-post.txt"
+```
+
+O comando inclui a notícia, gera a página e atualiza o carrossel em ordem de publicação. Veja todas as opções em [`noticias/README.md`](noticias/README.md).
 
 ## Deploy — Cloudflare Pages
 

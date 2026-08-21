@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{TITLE}} | MLC Negócios</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<meta name="theme-color" content="#0B406F" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="MLC Negócios" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:image" content="{{IMAGE}}" />
+<meta property="article:published_time" content="{{DATE_ISO}}" />
+<link rel="icon" type="image/png" href="/assets/img/logo-mlc-horizontal.png" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+<div class="ambient"><div class="blob blob-a"></div><div class="blob blob-b"></div><div class="blob blob-c"></div><div class="grain"></div></div>
+<div id="progress"></div>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="wrap navrow">
+    <a class="brand" href="/" aria-label="MLC Negócios, início">
+      <img class="brand-logo" src="/assets/img/logo-mlc-horizontal.png" alt="MLC Negócios" />
+    </a>
+    <nav class="mainnav" aria-label="Navegação principal">
+      <a href="/quem-somos/">Quem somos</a>
+      <a href="/bess/">BESS</a>
+      <a href="/locacao/">Locação</a>
+      <a href="/governanca/">Governança</a>
+      <a href="/noticias/" class="active">Notícias</a>
+      <a href="/contato/">Fale conosco</a>
+    </nav>
+    <div class="navcta">
+      <a class="btn btn-primary" href="https://wa.me/5544991267648?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20da%20MLC%20Neg%C3%B3cios." target="_blank" rel="noopener" aria-label="Falar com especialista no WhatsApp">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20l1.5-4.5A8 8 0 1 1 9 18.5z"/></svg>
+        <span class="btn-label">Falar com especialista</span>
+      </a>
+      <button class="hamb" id="hambBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobilepanel" id="mobilePanel">
+    <a href="/quem-somos/">Quem somos</a>
+    <a href="/bess/">BESS</a>
+    <a href="/locacao/">Locação</a>
+    <a href="/governanca/">Governança</a>
+    <a href="/noticias/">Notícias</a>
+    <a href="/contato/">Fale conosco</a>
+  </div>
+</header>
+
+<main>
+  <article>
+    <!-- ============ ARTICLE HERO ============ -->
+    <header class="article-hero">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="Navegação estrutural">
+          <a href="/">Início</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          <a href="/noticias/">Notícias</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          <span aria-current="page">{{TITLE}}</span>
+        </nav>
+        <span class="eyebrow">{{CATEGORY}}</span>
+        <h1>{{TITLE}}</h1>
+        <p class="article-deck">{{DECK}}</p>
+        <div class="article-publish"><time datetime="{{DATE_ISO}}">Publicado em {{DATE_DISPLAY}}</time></div>
+        <div class="article-tags" aria-label="Temas do artigo">{{TAGS}}</div>
+      </div>
+    </header>
+
+    <!-- ============ ARTICLE CONTENT ============ -->
+    <div class="article-main">
+      <div class="wrap">
+        <figure class="article-cover">
+          <img src="{{IMAGE}}" alt="{{IMAGE_ALT}}" />
+          <figcaption>{{IMAGE_CAPTION}}</figcaption>
+        </figure>
+
+        <div class="{{ARTICLE_LAYOUT_CLASS}}">
+          {{TOC}}
+          <div class="article-body">
+            {{CONTENT}}
+
+            <aside class="article-next" aria-label="Conheça a solução BESS">
+              <span class="eyebrow">Próximo passo</span>
+              <h2>Quer entender como o BESS se aplica ao seu cenário?</h2>
+              <p>Conheça a tecnologia, suas aplicações e os caminhos para adotar o armazenamento inteligente de energia.</p>
+              <a class="btn btn-ghost" href="/bess/">Conhecer a solução BESS</a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="section section--tinted">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow center" style="justify-content:center;">Vamos conversar?</span>
+        <h2>Eficiência energética começa com uma análise do seu cenário.</h2>
+        <p>Nossa equipe está preparada para avaliar as necessidades da sua empresa, indústria ou condomínio.</p>
+        <div class="btnrow">
+          <a class="btn btn-primary" href="https://wa.me/5544991267648?text=Ol%C3%A1%2C%20gostaria%20de%20entender%20como%20o%20BESS%20pode%20ser%20aplicado%20ao%20meu%20cen%C3%A1rio." target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-outline-light" href="/contato/">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="footbrand"><img class="brand-logo" src="/assets/img/logo-mlc-horizontal.png" alt="MLC Negócios" /></div>
+        <p class="tagline">Soluções Estratégicas para um Futuro Inteligente.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5c0-1.4 1-2.5 2.3-2.5S16 11.1 16 12.5V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 10l4 2-4 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footcol">
+        <h5>Navegação</h5>
+        <a href="/quem-somos/">Quem somos</a><a href="/governanca/">Governança</a><a href="/noticias/">Notícias</a><a href="/contato/">Fale conosco</a>
+      </div>
+      <div class="footcol">
+        <h5>Soluções</h5>
+        <a href="/bess/">Energia Inteligente (BESS)</a><a href="/locacao/">Locação estratégica</a><a href="/#solucoes">Estruturação de projetos</a>
+      </div>
+      <div class="footcol">
+        <h5>Contato</h5>
+        <span>44 99126-7648</span><span>comercial@mlcnegocios.com.br</span><span>Maringá/PR</span>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>&copy; 2026 MLC Negócios. Todos os direitos reservados.</span>
+      <span>CNPJ 68.076.907/0001-78</span>
+    </div>
+  </div>
+</footer>
+
+<button id="totop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

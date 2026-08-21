@@ -57,6 +57,37 @@
     });
   });
 
+  var blogCarousel = document.getElementById("blogCarousel");
+  if (blogCarousel){
+    var blogPrev = document.getElementById("blogPrev");
+    var blogNext = document.getElementById("blogNext");
+    var blogTrack = blogCarousel.querySelector(".blog-track");
+    function blogStep(){
+      var card = blogTrack.querySelector(".blog-card");
+      if (!card) return blogCarousel.clientWidth;
+      var gap = parseFloat(window.getComputedStyle(blogTrack).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function updateBlogControls(){
+      var maxScroll = Math.max(0, blogCarousel.scrollWidth - blogCarousel.clientWidth);
+      blogPrev.disabled = blogCarousel.scrollLeft <= 2;
+      blogNext.disabled = blogCarousel.scrollLeft >= maxScroll - 2;
+    }
+    function moveBlog(direction){
+      blogCarousel.scrollBy({left:direction * blogStep(), behavior:reduceMotion ? "auto" : "smooth"});
+    }
+    blogPrev.addEventListener("click", function(){ moveBlog(-1); });
+    blogNext.addEventListener("click", function(){ moveBlog(1); });
+    blogCarousel.addEventListener("scroll", updateBlogControls, {passive:true});
+    blogCarousel.addEventListener("keydown", function(event){
+      if (event.key === "ArrowLeft"){ event.preventDefault(); moveBlog(-1); }
+      if (event.key === "ArrowRight"){ event.preventDefault(); moveBlog(1); }
+    });
+    window.addEventListener("resize", updateBlogControls, {passive:true});
+    window.addEventListener("load", updateBlogControls, {once:true});
+    updateBlogControls();
+  }
+
   var form = document.getElementById("contactForm");
   if (form){
     var status = document.getElementById("formStatus");

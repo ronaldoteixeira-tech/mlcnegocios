@@ -79,12 +79,65 @@
   </div>
 </section>
 
-<!-- ============ EM BREVE ============ -->
-<section class="section news-coming-soon" style="padding-top:0;">
+<!-- ============ CONTEÚDOS ============ -->
+<section class="section news-content" id="conteudos">
   <div class="wrap">
-    <div class="newsnote reveal center">
-      <p><strong>Em breve, novos conteúdos por aqui.</strong><br>Enquanto isso, fale com nossa equipe para tirar dúvidas ou discutir o cenário da sua empresa.</p>
+    <div class="news-content-top reveal">
+      <div class="news-list-head">
+        <span class="eyebrow">Conteúdos recentes</span>
+        <h2>Informação para decisões mais inteligentes.</h2>
+        <p>Reflexões sobre energia, sustentabilidade e os movimentos que estão transformando empresas, indústrias e condomínios.</p>
+      </div>
+      <div class="blog-carousel-actions" aria-label="Controles do carrossel">
+        <button class="blog-carousel-button" id="blogPrev" type="button" aria-label="Ver artigos anteriores" aria-controls="blogCarousel">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="blog-carousel-button" id="blogNext" type="button" aria-label="Ver próximos artigos" aria-controls="blogCarousel">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
     </div>
+    <div class="blog-carousel reveal" id="blogCarousel" data-count="2" tabindex="0" aria-label="Artigos publicados, do mais recente para o mais antigo">
+      <div class="blog-track">
+        <!-- BLOG_CARDS_START -->
+        <article class="blog-card">
+          <a class="blog-card-link" href="/noticias/aplicacoes-do-sistema-bess-para-armazenamento-de-energia/" aria-label="Ler o artigo Aplicações do sistema BESS para armazenamento de energia">
+            <div class="blog-card-media">
+              <img src="/assets/img/bess-o-que-e.webp" alt="Técnico monitorando um sistema BESS instalado em um edifício" loading="lazy" />
+            </div>
+            <div class="blog-card-copy">
+              <div class="blog-card-kicker">
+                <span>Aplicações BESS</span>
+                <time datetime="2026-08-21">21 de agosto de 2026</time>
+              </div>
+              <h3>Aplicações do sistema BESS para armazenamento de energia</h3>
+              <p>Onde o BESS resolve problemas reais: conheça aplicações em indústrias, varejo, saúde, agronegócio, edifícios comerciais e condomínios.</p>
+              <div class="blog-card-meta" aria-label="Temas do artigo"><span>BESS</span><span>Aplicações</span><span>Continuidade operacional</span></div>
+              <span class="blog-card-read">Ler artigo <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="/noticias/eficiencia-energetica-sustentabilidade-esg/" aria-label="Ler o artigo Eficiência energética, sustentabilidade e ESG">
+            <div class="blog-card-media">
+              <img src="/assets/img/bess-geral-construtoras.webp" alt="Unidades de armazenamento de energia BESS instaladas em um condomínio residencial" loading="lazy" />
+            </div>
+            <div class="blog-card-copy">
+              <div class="blog-card-kicker">
+                <span>Energia e ESG</span>
+                <time datetime="2026-08-21">21 de agosto de 2026</time>
+              </div>
+              <h3>Eficiência energética, sustentabilidade e ESG</h3>
+              <p>Por que o armazenamento de energia com BESS é uma peça estratégica da transição energética — e como ele fortalece a continuidade, a segurança e a eficiência.</p>
+              <div class="blog-card-meta" aria-label="Temas do artigo"><span>Sustentabilidade</span><span>Eficiência energética</span><span>BESS</span></div>
+              <span class="blog-card-read">Ler artigo <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <!-- BLOG_CARDS_END -->
+      </div>
+    </div>
+    <p class="blog-carousel-hint">Deslize para navegar pelos artigos</p>
   </div>
 </section>
 
