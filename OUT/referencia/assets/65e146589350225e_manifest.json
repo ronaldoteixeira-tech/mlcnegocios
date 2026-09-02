@@ -1,0 +1,22 @@
+{
+    "short_name": "A. Camargo",
+    "name": "A. Camargo",
+    "icons": [
+      {
+        "src": "https://storage-dash.increazy.com/folders/574/root/acamargo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "https://storage-dash.increazy.com/folders/574/root/acamargo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#fff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#fff",
+    "description": "A. Camargo"
+  }
