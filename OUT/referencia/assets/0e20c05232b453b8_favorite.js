@@ -1,9 +1,0 @@
-function updateFavoriteIcons(){const isLogged=_cookie('user_token').read();const favoriteIcons=document.querySelectorAll('span[data-favorites]');for(let i=0;i<favoriteIcons.length;i++){const favoriteIcon=favoriteIcons[i];const wishlistItem=(window.__wishlist||[]).filter(i=>i.product_id==favoriteIcon.getAttribute('data-favorites'));const inWishlist=wishlistItem.length>0;if(inWishlist){favoriteIcon.setAttribute('data-wished',!0)}else{favoriteIcon.removeAttribute('data-wished')}
-if(isLogged){favoriteIcon.setAttribute('onclick','toggleWishlist(event)')}}}
-async function getWishlist(){console.log('get wishlist');window.__wishlist=await _ecommerce('wishlist/get',{body:{customer_id:_cookie('customer_id').read(),}});updateFavoriteIcons()}
-async function toggleWishlist(event){if(event.preventDefault){event.preventDefault();event.stopPropagation()}
-if(Object.keys(window._user||{}).length<=0){_href('/account/verify');return}
-const productId=event.target.getAttribute('data-favorites');const wishlistItem=(window.__wishlist||[]).filter(i=>i.product_id==productId);const inWishlist=wishlistItem.length>0;const action=inWishlist?'remove':'add';const body=inWishlist?wishlistItem[0]:{customer_id:_cookie('customer_id').read(),product_id:productId,}
-if(action=='add'){try{const productData=JSON.parse(event.target.getAttribute('data-favorites-product').replace(/'/g,'"'))}catch(e){}}
-const item=await _ecommerce('wishlist/'+action,{body,success(){const actionStr=inWishlist?'removido dos':'adicionado aos';toast(`Produto ${actionStr} favoritos`,'green')}});if(action=='remove'){if(window.location.pathname=='/account/wishlist'){await searchWishlistProducts()}}
-window.__wishlist=item;updateFavoriteIcons()}
