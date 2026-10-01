@@ -46,6 +46,7 @@ Desktop.ini
 *.log
 npm-debug.log*
 .DS_Store
+node_modules/
 
 # Temporários do Office/LibreOffice
 .~lock.*#

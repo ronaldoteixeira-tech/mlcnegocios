@@ -1,8 +1,10 @@
 ---
-title: BESS: dos geradores à inteligência no armazenamento
+title: "BESS: dos geradores à inteligência no armazenamento"
 slug: bess-dos-geradores-a-inteligencia-no-armazenamento
 date: 2026-09-17
 createdAt: 2026-09-17T19:48:19-03:00
+status: published
+author: Equipe MLC
 category: Tecnologia e energia
 excerpt: O armazenamento inteligente transforma a relação com a eletricidade e acrescenta proteção, eficiência e resiliência à infraestrutura energética.
 description: Entenda como o BESS transforma o armazenamento em uma ferramenta de gestão inteligente, eficiência e resiliência energética.

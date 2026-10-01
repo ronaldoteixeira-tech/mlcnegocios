@@ -1,0 +1,169 @@
+media:
+  - name: blog_images
+    label: Imagens do blog
+    input: assets/img
+    output: /assets/img
+    categories: [image]
+    extensions: [webp, jpg, jpeg, png]
+    rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "blog: criar {filename} pelo painel"
+      update: "blog: atualizar {filename} pelo painel"
+      delete: "blog: excluir {filename} pelo painel"
+      rename: "blog: renomear {oldFilename} para {newFilename}"
+
+content:
+  - name: noticias
+    label: Notícias
+    type: collection
+    path: noticias/posts
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{fields.slug}.md"
+      field: false
+    view:
+      fields: [title, status, date, author, category]
+      primary: title
+      sort: [date, title]
+      search: [title, category, author, tags]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        description: Título principal exibido no card e na página do artigo.
+        options:
+          minlength: 12
+          maxlength: 110
+      - name: slug
+        label: Endereço do artigo
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use apenas letras minúsculas, números e hífens.
+        description: Defina ao criar. Não altere depois que o artigo for publicado.
+      - name: status
+        label: Status editorial
+        type: select
+        required: true
+        default: draft
+        options:
+          values:
+            - name: draft
+              label: Rascunho
+            - name: review
+              label: Em revisão
+            - name: published
+              label: Publicado
+      - name: author
+        label: Autor
+        type: string
+        required: true
+        default: Equipe MLC
+      - name: date
+        label: Data de publicação
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: createdAt
+        label: Criado em
+        type: date
+        required: true
+        readonly: true
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        options:
+          values:
+            - BESS
+            - Eficiência energética
+            - Eletromobilidade e agro
+            - Energia e ESG
+            - Energia e geopolítica
+            - Mercado de energia
+            - Sustentabilidade
+            - Tecnologia e energia
+      - name: excerpt
+        label: Resumo do card
+        type: text
+        required: true
+        description: Resumo curto exibido na listagem de notícias.
+        options:
+          minlength: 40
+          maxlength: 220
+      - name: description
+        label: Descrição para buscadores
+        type: text
+        required: true
+        options:
+          minlength: 50
+          maxlength: 160
+      - name: deck
+        label: Texto de abertura
+        type: text
+        required: true
+        description: Frase exibida abaixo do título na abertura do artigo.
+        options:
+          minlength: 40
+          maxlength: 260
+      - name: image
+        label: Imagem de capa
+        type: image
+        required: true
+        options:
+          media: blog_images
+          extensions: [webp, jpg, jpeg, png]
+          rename: safe
+      - name: imageAlt
+        label: Descrição acessível da imagem
+        type: text
+        required: true
+        description: Descreva objetivamente o que aparece na imagem.
+        options:
+          minlength: 20
+          maxlength: 180
+      - name: imageCaption
+        label: Legenda da imagem
+        type: text
+        required: false
+        options:
+          maxlength: 240
+      - name: tags
+        label: Tags
+        type: string
+        required: true
+        description: "Separe as tags com o caractere |. Exemplo: BESS | Agro | Energia"
+      - name: body
+        label: Conteúdo do artigo
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          media: false
+    actions:
+      - name: validate_blog
+        label: Validar e gerar o blog
+        scope: collection
+        workflow: blog-publish.yml
+        ref: current
+        confirm:
+          title: Validar o blog?
+          message: O processo verificará os posts e regenerará as páginas públicas.
+          button: Executar validação

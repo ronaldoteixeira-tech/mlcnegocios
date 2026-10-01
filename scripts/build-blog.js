@@ -67,7 +67,7 @@ function renderArticle(post, template) {
     TAGS: renderTags(post.tags.length ? post.tags : [post.category]),
     TITLE: escapeHtml(post.title),
     TOC: toc
-  });
+  }).replace(/^[ \t]+$/gm, "");
 }
 
 function updateIndex(posts) {
@@ -83,18 +83,26 @@ function updateIndex(posts) {
 }
 
 function buildBlog() {
-  const posts = readPosts();
+  const allPosts = readPosts({ includeUnpublished: true });
+  const posts = allPosts.filter((post) => post.status === "published");
   if (!posts.length) throw new Error("Nenhum post encontrado em noticias/posts/.");
   const template = fs.readFileSync(templatePath, "utf8");
 
   updateIndex(posts);
+  allPosts.filter((post) => post.status !== "published").forEach((post) => {
+    const unpublishedDirectory = path.join(siteRoot, "noticias", post.slug);
+    if (fs.existsSync(unpublishedDirectory)) {
+      fs.rmSync(unpublishedDirectory, { recursive: true, force: true });
+    }
+  });
   posts.forEach((post) => {
     const articleDirectory = path.join(siteRoot, "noticias", post.slug);
     fs.mkdirSync(articleDirectory, { recursive: true });
     fs.writeFileSync(path.join(articleDirectory, "index.html"), renderArticle(post, template), "utf8");
   });
 
-  console.log(`Blog atualizado: ${posts.length} post(s), do mais recente para o mais antigo.`);
+  const unpublishedCount = allPosts.length - posts.length;
+  console.log(`Blog atualizado: ${posts.length} post(s) publicado(s) e ${unpublishedCount} rascunho(s)/revisão ignorado(s).`);
   posts.forEach((post, index) => console.log(`${index + 1}. ${post.date} — ${post.title}`));
   return posts;
 }

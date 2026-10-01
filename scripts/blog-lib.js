@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const YAML = require("yaml");
 
 const siteRoot = path.resolve(__dirname, "..");
 const postsDirectory = path.join(siteRoot, "noticias", "posts");
@@ -22,41 +23,74 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function serializePost(metadata, body) {
+  return `---\n${YAML.stringify(metadata).trimEnd()}\n---\n${String(body).trim()}\n`;
+}
+
 function parseFrontMatter(source, filename) {
   const normalized = source.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
   const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) throw new Error(`${filename}: o post precisa começar com um bloco --- de metadados.`);
 
-  const metadata = {};
-  match[1].split("\n").forEach((line) => {
-    if (!line.trim() || line.trim().startsWith("#")) return;
-    const separator = line.indexOf(":");
-    if (separator === -1) throw new Error(`${filename}: metadado inválido: ${line}`);
-    const key = line.slice(0, separator).trim();
-    const value = line.slice(separator + 1).trim();
-    metadata[key] = value;
-  });
+  let metadata;
+  try {
+    metadata = YAML.parse(match[1], { maxAliasCount: 10 });
+  } catch (error) {
+    throw new Error(`${filename}: metadados YAML inválidos: ${error.message}`);
+  }
+  if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) {
+    throw new Error(`${filename}: o bloco de metadados precisa ser um objeto YAML.`);
+  }
+
+  const text = (field) => {
+    const value = metadata[field];
+    if (value === undefined || value === null) return "";
+    if (typeof value === "object") throw new Error(`${filename}: ${field} precisa ser um texto.`);
+    return String(value).trim();
+  };
 
   const required = ["title", "slug", "date", "category", "excerpt", "description", "deck", "image", "imageAlt"];
   required.forEach((field) => {
-    if (!metadata[field]) throw new Error(`${filename}: metadado obrigatório ausente: ${field}`);
+    if (!text(field)) throw new Error(`${filename}: metadado obrigatório ausente: ${field}`);
   });
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(metadata.date)) {
+  const title = text("title");
+  const slug = text("slug");
+  const date = text("date");
+  const status = text("status").toLowerCase() || "published";
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     throw new Error(`${filename}: date deve usar o formato AAAA-MM-DD.`);
   }
-  if (metadata.slug !== slugify(metadata.slug)) {
+  if (slug !== slugify(slug)) {
     throw new Error(`${filename}: slug deve conter apenas letras minúsculas, números e hífens.`);
   }
-  const createdAt = metadata.createdAt || `${metadata.date}T00:00:00-03:00`;
+  if (!["draft", "review", "published"].includes(status)) {
+    throw new Error(`${filename}: status deve ser draft, review ou published.`);
+  }
+  const createdAt = text("createdAt") || `${date}T00:00:00-03:00`;
   if (!Number.isFinite(Date.parse(createdAt))) {
     throw new Error(`${filename}: createdAt precisa ser uma data e hora ISO válida.`);
   }
 
+  const rawTags = metadata.tags || [];
+  const tags = (Array.isArray(rawTags) ? rawTags : String(rawTags).split("|"))
+    .map((tag) => String(tag).trim())
+    .filter(Boolean);
+
   return {
-    ...metadata,
-    tags: (metadata.tags || "").split("|").map((tag) => tag.trim()).filter(Boolean),
+    title,
+    slug,
+    date,
+    status,
+    author: text("author"),
+    category: text("category"),
+    excerpt: text("excerpt"),
+    description: text("description"),
+    deck: text("deck"),
+    image: text("image"),
+    imageAlt: text("imageAlt"),
+    imageCaption: text("imageCaption"),
+    tags,
     createdAt,
-    imageCaption: metadata.imageCaption || "",
     body: match[2].trim(),
     filename
   };
@@ -146,7 +180,7 @@ function formatDate(date) {
   }).format(new Date(Date.UTC(year, month - 1, day, 12)));
 }
 
-function readPosts() {
+function readPosts({ includeUnpublished = false } = {}) {
   if (!fs.existsSync(postsDirectory)) return [];
   const posts = fs.readdirSync(postsDirectory)
     .filter((filename) => filename.endsWith(".md"))
@@ -161,7 +195,7 @@ function readPosts() {
     slugs.add(post.slug);
   });
 
-  return posts.sort((a, b) => {
+  return posts.filter((post) => includeUnpublished || post.status === "published").sort((a, b) => {
     const byDate = b.date.localeCompare(a.date);
     if (byDate) return byDate;
     return Date.parse(b.createdAt) - Date.parse(a.createdAt);
@@ -190,6 +224,7 @@ module.exports = {
   postsDirectory,
   readPosts,
   renderMarkdown,
+  serializePost,
   siteRoot,
   slugify,
   stripMarkdown,

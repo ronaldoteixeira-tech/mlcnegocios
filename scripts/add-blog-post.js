@@ -3,6 +3,7 @@ const path = require("path");
 const { buildBlog } = require("./build-blog");
 const {
   postsDirectory,
+  serializePost,
   slugify,
   stripMarkdown,
   truncate
@@ -57,7 +58,7 @@ Alternativa:
   node scripts/add-blog-post.js --file "caminho/do/post.txt"
 
 O título deve estar na primeira linha. A data padrão é a data atual.
-Opções: --date, --category, --tags, --image, --image-alt, --excerpt, --description, --deck, --caption e --slug.`);
+Opções: --date, --status, --author, --category, --tags, --image, --image-alt, --excerpt, --description, --deck, --caption e --slug.`);
     return;
   }
   if (!args.file && !args.text) {
@@ -88,27 +89,33 @@ Opções: --date, --category, --tags, --image, --image-alt, --excerpt, --descrip
   const deck = frontMatterValue(args.deck || excerpt);
   const caption = frontMatterValue(args.caption || "Sistema BESS aplicado ao armazenamento inteligente de energia.");
   const createdAt = new Date().toISOString();
+  const status = frontMatterValue(args.status || "published").toLowerCase();
+  if (!["draft", "review", "published"].includes(status)) {
+    throw new Error("Use --status com draft, review ou published.");
+  }
+  const author = frontMatterValue(args.author || "Equipe MLC");
 
   fs.mkdirSync(postsDirectory, { recursive: true });
   const destination = path.join(postsDirectory, `${slug}.md`);
   if (fs.existsSync(destination)) throw new Error(`Já existe um post com o slug ${slug}. Use --slug para escolher outro.`);
 
-  const post = `---
-title: ${title}
-slug: ${slug}
-date: ${date}
-createdAt: ${createdAt}
-category: ${category}
-excerpt: ${excerpt}
-description: ${description}
-deck: ${deck}
-image: ${image}
-imageAlt: ${imageAlt}
-imageCaption: ${caption}
-tags: ${tags}
----
-${body}
-`;
+  const metadata = {
+    title,
+    slug,
+    date,
+    createdAt,
+    status,
+    author,
+    category,
+    excerpt,
+    description,
+    deck,
+    image,
+    imageAlt,
+    imageCaption: caption,
+    tags
+  };
+  const post = serializePost(metadata, body);
 
   fs.writeFileSync(destination, post, "utf8");
   console.log(`Fonte criada: noticias/posts/${slug}.md`);

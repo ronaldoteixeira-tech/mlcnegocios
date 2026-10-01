@@ -3,6 +3,8 @@ title: Eletromobilidade inova o transporte no agro e descarboniza o setor
 slug: eletromobilidade-inova-o-transporte-no-agro-e-descarboniza-o-setor
 date: 2026-09-30
 createdAt: 2026-09-30T17:34:13-03:00
+status: published
+author: Equipe MLC
 category: Eletromobilidade e agro
 excerpt: Caminhões elétricos, geração limpa e sistemas BESS conectam o agronegócio brasileiro a uma logística de baixo carbono, mais resiliente e eficiente.
 description: Entenda como caminhões elétricos, geração renovável e sistemas BESS podem tornar a logística do agronegócio mais eficiente e de baixo carbono.
