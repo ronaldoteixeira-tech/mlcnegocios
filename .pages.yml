@@ -157,13 +157,3 @@ content:
           format: markdown
           switcher: true
           media: false
-    actions:
-      - name: validate_blog
-        label: Validar e gerar o blog
-        scope: collection
-        workflow: blog-publish.yml
-        ref: current
-        confirm:
-          title: Validar o blog?
-          message: O processo verificará os posts e regenerará as páginas públicas.
-          button: Executar validação
