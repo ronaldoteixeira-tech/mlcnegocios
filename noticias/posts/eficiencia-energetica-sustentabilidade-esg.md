@@ -3,6 +3,8 @@ title: Eficiência energética, sustentabilidade e ESG
 slug: eficiencia-energetica-sustentabilidade-esg
 date: 2026-08-21
 createdAt: 2026-08-21T18:00:00-03:00
+status: published
+author: Equipe MLC
 category: Energia e ESG
 excerpt: Por que o armazenamento de energia com BESS é uma peça estratégica da transição energética — e como ele fortalece a continuidade, a segurança e a eficiência.
 description: Entenda por que a eficiência energética e o armazenamento de energia com BESS são estratégicos para a sustentabilidade, a segurança e a agenda ESG.

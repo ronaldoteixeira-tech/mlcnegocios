@@ -3,6 +3,8 @@ title: Eficiência Energética fortalece sistemas para desafios globais
 slug: eficiencia-energetica-fortalece-sistemas-para-desafios-globais
 date: 2026-09-17
 createdAt: 2026-09-17T19:42:42-03:00
+status: published
+author: Equipe MLC
 category: Energia e geopolítica
 excerpt: Em um cenário de tensões geopolíticas e crises energéticas, eficiência energética e BESS ganham papel central na resiliência de empresas e países.
 description: Entenda como a eficiência energética e o BESS fortalecem a segurança, a resiliência e a competitividade diante dos desafios globais.

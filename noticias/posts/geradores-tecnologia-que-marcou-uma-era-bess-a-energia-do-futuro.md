@@ -1,8 +1,10 @@
 ---
-title: Geradores: tecnologia que marcou uma era; BESS: a energia do futuro
+title: "Geradores: tecnologia que marcou uma era; BESS: a energia do futuro"
 slug: geradores-tecnologia-que-marcou-uma-era-bess-a-energia-do-futuro
 date: 2026-09-17
 createdAt: 2026-09-17T19:45:35-03:00
+status: published
+author: Equipe MLC
 category: Tecnologia e energia
 excerpt: Geradores seguem relevantes, mas o BESS inaugura uma nova etapa ao armazenar, gerenciar e disponibilizar energia com rapidez, inteligência e eficiência.
 description: Entenda como o BESS amplia a continuidade energética com armazenamento, resposta imediata e gestão inteligente da energia.

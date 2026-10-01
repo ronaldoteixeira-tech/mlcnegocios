@@ -3,8 +3,10 @@ title: Aplicações do sistema BESS para armazenamento de energia
 slug: aplicacoes-do-sistema-bess-para-armazenamento-de-energia
 date: 2026-08-21
 createdAt: 2026-08-21T18:20:00-03:00
+status: published
+author: Equipe MLC
 category: Aplicações BESS
-excerpt: Onde o BESS resolve problemas reais: conheça aplicações em indústrias, varejo, saúde, agronegócio, edifícios comerciais e condomínios.
+excerpt: "Onde o BESS resolve problemas reais: conheça aplicações em indústrias, varejo, saúde, agronegócio, edifícios comerciais e condomínios."
 description: Conheça as aplicações do sistema BESS e seus benefícios para continuidade operacional, redução de custos, estabilidade e integração com energia solar.
 deck: Mais do que um equipamento, o BESS integra energia, segurança, economia e continuidade operacional em diferentes setores.
 image: /assets/img/bess-o-que-e.webp

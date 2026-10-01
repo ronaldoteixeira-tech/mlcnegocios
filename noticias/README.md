@@ -2,6 +2,12 @@
 
 O blog é gerado a partir dos arquivos em `noticias/posts/`. As páginas públicas continuam sendo HTML estático, mas ninguém precisa copiar cards, cabeçalhos ou rodapés manualmente.
 
+## Painel editorial
+
+O MVP do painel usa o Pages CMS para editar os mesmos arquivos pelo navegador. Rascunhos usam `status: draft`, itens em revisão usam `status: review` e apenas conteúdos com `status: published` entram no site.
+
+O roteiro de validação está em `noticias/PAINEL-MVP.md`.
+
 ## Adicionar uma notícia em um comando
 
 Crie um arquivo `.txt` com o título na primeira linha e o texto abaixo. Separe os parágrafos com uma linha em branco:
@@ -50,6 +56,8 @@ Opções disponíveis:
 - `--slug "url-do-artigo"`: endereço personalizado.
 
 Sem essas opções, o comando aplica padrões prontos para conteúdo sobre BESS.
+
+O comando publica imediatamente por padrão. Para criar um rascunho, use `--status "draft"`. Também é possível informar `--author "Nome do autor"`.
 
 ## Formatação opcional do texto
 
