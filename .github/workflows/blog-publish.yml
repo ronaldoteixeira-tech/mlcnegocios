@@ -7,6 +7,7 @@ on:
       - teste-painel-mvp
     paths:
       - ".pages.yml"
+      - ".github/workflows/blog-publish.yml"
       - "assets/img/**"
       - "noticias/posts/**"
       - "scripts/**"
@@ -15,8 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       payload:
-        description: Contexto enviado pelo Pages CMS
-        required: true
+        description: Contexto opcional de uma execução manual
+        required: false
+        default: "{}"
         type: string
 
 concurrency:
