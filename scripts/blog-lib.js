@@ -49,14 +49,27 @@ function parseFrontMatter(source, filename) {
     return String(value).trim();
   };
 
-  const required = ["title", "slug", "date", "category", "excerpt", "description", "deck", "image", "imageAlt"];
+  const required = [
+    "title",
+    "slug",
+    "date",
+    "createdAt",
+    "status",
+    "author",
+    "category",
+    "excerpt",
+    "description",
+    "deck",
+    "image",
+    "imageAlt"
+  ];
   required.forEach((field) => {
     if (!text(field)) throw new Error(`${filename}: metadado obrigatório ausente: ${field}`);
   });
   const title = text("title");
   const slug = text("slug");
   const date = text("date");
-  const status = text("status").toLowerCase() || "published";
+  const status = text("status").toLowerCase();
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     throw new Error(`${filename}: date deve usar o formato AAAA-MM-DD.`);
   }
@@ -66,7 +79,7 @@ function parseFrontMatter(source, filename) {
   if (!["draft", "review", "published"].includes(status)) {
     throw new Error(`${filename}: status deve ser draft, review ou published.`);
   }
-  const createdAt = text("createdAt") || `${date}T00:00:00-03:00`;
+  const createdAt = text("createdAt");
   if (!Number.isFinite(Date.parse(createdAt))) {
     throw new Error(`${filename}: createdAt precisa ser uma data e hora ISO válida.`);
   }
@@ -75,6 +88,7 @@ function parseFrontMatter(source, filename) {
   const tags = (Array.isArray(rawTags) ? rawTags : String(rawTags).split("|"))
     .map((tag) => String(tag).trim())
     .filter(Boolean);
+  if (!tags.length) throw new Error(`${filename}: metadado obrigatório ausente: tags`);
 
   return {
     title,

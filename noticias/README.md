@@ -8,6 +8,8 @@ O MVP do painel usa o Pages CMS para editar os mesmos arquivos pelo navegador. R
 
 O roteiro de validação está em `noticias/PAINEL-MVP.md`.
 
+O painel não permite renomear ou excluir artigos. Para retirar um conteúdo do ar sem perder o histórico, altere o status para `draft`.
+
 ## Adicionar uma notícia em um comando
 
 Crie um arquivo `.txt` com o título na primeira linha e o texto abaixo. Separe os parágrafos com uma linha em branco:
@@ -85,3 +87,14 @@ node scripts/build-blog.js
 ```
 
 Não edite diretamente os cards da listagem ou o HTML dentro da pasta do artigo, pois eles são arquivos gerados.
+
+## Preparar o ambiente técnico
+
+Instale as dependências e execute o ciclo completo de validação:
+
+```bash
+npm ci
+npm run test:mvp
+```
+
+A pasta `node_modules/` é local e não deve ser adicionada ao Git. O workflow também verifica o preview ou a produção após cada geração para diferenciar artigos reais da página de fallback do servidor.

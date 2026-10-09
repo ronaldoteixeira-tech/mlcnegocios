@@ -7,8 +7,9 @@ Confirmar que uma pessoa do time consegue criar, revisar e publicar uma notícia
 ## Ambiente seguro
 
 - Repositório: `ronaldoteixeira-tech/mlcnegocios`
-- Branch do teste: `teste-painel-mvp`
+- Branch do teste: `cms-mvp-v2`
 - Painel: `https://app.pagescms.org/`
+- Preview: `https://cms-mvp-v2.mlcnegocios.pages.dev/`
 - Conteúdo de teste: `Teste MVP: publicação pelo painel`
 - A branch `main` não deve ser selecionada durante o teste.
 
@@ -17,10 +18,11 @@ Confirmar que uma pessoa do time consegue criar, revisar e publicar uma notícia
 1. Instalar o GitHub App do Pages CMS com acesso apenas ao repositório `mlcnegocios`.
 2. Entrar em `https://app.pagescms.org/` usando uma conta GitHub autorizada.
 3. Abrir o repositório `mlcnegocios`.
-4. Selecionar a branch `teste-painel-mvp`.
+4. Selecionar a branch `cms-mvp-v2`.
 5. Abrir a coleção **Notícias**.
 6. Confirmar que o item **Teste MVP: publicação pelo painel** aparece como rascunho.
 7. Abrir a aba **Actions** do GitHub e confirmar que o workflow **Validar e gerar blog** está disponível.
+8. Confirmar que as opções de renomear e excluir artigos não aparecem no painel.
 
 ## Sessão de teste
 
@@ -59,7 +61,7 @@ Resultado esperado:
 2. Alterar o status para **Publicado**.
 3. Salvar.
 4. Aguardar o workflow **Validar e gerar blog** concluir.
-5. Abrir a URL de preview da branch no Cloudflare Pages.
+5. Abrir `https://cms-mvp-v2.mlcnegocios.pages.dev/`.
 6. Conferir o card, a página, a capa e a versão mobile.
 
 Resultado esperado:
@@ -90,6 +92,7 @@ O MVP é aprovado se:
 - nenhum metadado obrigatório ficar ausente;
 - rascunhos e itens em revisão permanecerem fora do site;
 - a automação terminar sem erros;
+- a validação do Cloudflare confirmar cada URL como uma página de artigo, e não como o fallback da página inicial;
 - a publicação e a retirada do ar ocorrerem em até 5 minutos cada;
 - o participante atribuir nota mínima 4 de 5 para facilidade de uso.
 
@@ -104,3 +107,5 @@ O MVP é aprovado se:
 ## Encerramento
 
 Depois do teste, deixe o artigo temporário como **Rascunho**. Não faça merge da branch até os ajustes encontrados na sessão serem revisados.
+
+Não use o artigo temporário para testar renomeação ou exclusão. Essas operações ficam bloqueadas para proteger URLs já divulgadas e preservar o histórico editorial.

@@ -5,6 +5,7 @@
     "blog:add": "node scripts/add-blog-post.js",
     "blog:build": "node scripts/build-blog.js",
     "blog:validate": "node scripts/validate-blog.js",
+    "blog:validate:production": "node scripts/validate-production.js",
     "test:mvp": "node scripts/test-panel-flow.js && node scripts/validate-blog.js --mvp"
   },
   "dependencies": {

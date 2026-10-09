@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - teste-painel-mvp
+      - cms-mvp-v2
     paths:
       - ".pages.yml"
       - ".github/workflows/blog-publish.yml"
@@ -23,7 +23,7 @@ on:
 
 concurrency:
   group: blog-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -31,6 +31,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Baixar o repositório
         uses: actions/checkout@v5
@@ -46,11 +47,8 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Gerar páginas do blog
-        run: npm run blog:build
-
-      - name: Validar conteúdo e saída
-        run: npm run blog:validate
+      - name: Testar ciclo editorial, gerar e validar o blog
+        run: npm run test:mvp
 
       - name: Registrar páginas geradas
         shell: bash
@@ -62,5 +60,20 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "build(blog): atualizar páginas geradas [skip ci]"
+          git commit -m "build(blog): atualizar páginas geradas"
           git push
+
+      - name: Definir endereço publicado
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == "main" ]]; then
+            echo "SITE_URL=https://mlcnegocios.com.br" >> "$GITHUB_ENV"
+          else
+            echo "SITE_URL=https://${GITHUB_REF_NAME}.mlcnegocios.pages.dev" >> "$GITHUB_ENV"
+          fi
+
+      - name: Confirmar páginas no Cloudflare
+        env:
+          VERIFY_RETRIES: "24"
+          VERIFY_INTERVAL_MS: "10000"
+        run: npm run blog:validate:production

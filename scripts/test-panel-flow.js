@@ -36,7 +36,11 @@ try {
   assert(publicIndex().includes(`/noticias/${slug}/`), "Post publicado não apareceu na listagem.");
   assert(fs.existsSync(path.join(publicDirectory, "index.html")), "Página do post publicado não foi gerada.");
 
-  console.log("Fluxo draft → review → published validado com sucesso.");
+  setStatus("draft");
+  assert(!publicIndex().includes(`/noticias/${slug}/`), "Post retirado do ar permaneceu na listagem.");
+  assert(!fs.existsSync(publicDirectory), "Post retirado do ar manteve uma página pública.");
+
+  console.log("Fluxo draft → review → published → draft validado com sucesso.");
 } finally {
   fs.writeFileSync(sourcePath, original, "utf8");
   buildBlog();
