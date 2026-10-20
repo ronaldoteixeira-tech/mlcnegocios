@@ -9,9 +9,9 @@ category: Mercado de energia
 excerpt: Os leilões previstos para dezembro de 2026 colocam o armazenamento de energia no centro das discussões sobre segurança, inovação e eficiência no Brasil.
 description: Entenda como os leilões da ANEEL impulsionam o BESS, a segurança energética e uma nova cadeia produtiva de armazenamento no Brasil.
 deck: Os leilões previstos para dezembro de 2026 colocam o armazenamento de energia no centro das discussões sobre segurança, inovação e eficiência no Brasil.
-image: /assets/img/bess-o-que-e.webp
-imageAlt: Técnico monitorando um sistema BESS de armazenamento de energia em baterias
-imageCaption: O armazenamento em baterias ganha protagonismo na infraestrutura energética brasileira.
+image: /assets/img/blog-leiloes-aneel-bess.jpg
+imageAlt: Sistemas BESS conectados a uma subestação, painéis solares e aerogeradores
+imageCaption: O armazenamento em baterias integra geração renovável e infraestrutura de rede no novo cenário energético brasileiro.
 tags: BESS | ANEEL | Armazenamento de energia
 ---
 Os leilões programados pela Agência Nacional de Energia Elétrica, ANEEL, para início de dezembro de 2026, marcam um novo capítulo do setor elétrico brasileiro e colocam o armazenamento de energia no centro das discussões sobre segurança energética, inovação e eficiência.

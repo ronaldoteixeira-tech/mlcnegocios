@@ -1,0 +1,5 @@
+interface:
+  display_name: "Publicar post do blog MLC"
+  short_description: "Publica posts com capa inédita e validação"
+  default_prompt: "Use $publicar-post-blog-mlc para publicar um novo artigo no blog da MLC com uma imagem de capa inédita."
+

@@ -81,7 +81,10 @@ Opções: --date, --status, --author, --category, --tags, --image, --image-alt, 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error("Use --date no formato AAAA-MM-DD.");
   const category = frontMatterValue(args.category || "Energia e BESS");
   const tags = frontMatterValue(args.tags || "BESS | Eficiência energética");
-  const image = frontMatterValue(args.image || "/assets/img/bess-o-que-e.webp");
+  if (!args.image) {
+    throw new Error('Informe --image com uma capa exclusiva. Se o usuário não enviou uma imagem, use a skill publicar-post-blog-mlc para gerar uma antes da publicação.');
+  }
+  const image = frontMatterValue(args.image);
   const imageAlt = frontMatterValue(args["image-alt"] || `Sistema BESS relacionado ao artigo ${title}`);
   const firstParagraph = body.split(/\n\s*\n/).find((block) => !block.trim().startsWith("#")) || body;
   const excerpt = frontMatterValue(args.excerpt || truncate(firstParagraph, 210));
