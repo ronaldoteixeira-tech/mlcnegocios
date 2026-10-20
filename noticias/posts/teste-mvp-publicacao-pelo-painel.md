@@ -3,7 +3,7 @@ title: "Teste MVP: publicação pelo painel"
 slug: teste-mvp-publicacao-pelo-painel
 date: 2026-10-01
 createdAt: 2026-10-01T13:00:00Z
-status: review
+status: draft
 author: Equipe MLC
 category: Tecnologia e energia
 excerpt: Este conteúdo temporário valida a criação, a revisão e a publicação de
