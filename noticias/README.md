@@ -17,10 +17,10 @@ Segundo parágrafo do artigo.
 Na raiz do projeto, execute:
 
 ```bash
-.\publicar-noticia.cmd "caminho/do/novo-post.txt"
+.\publicar-noticia.cmd "caminho/do/novo-post.txt" --image "/assets/img/blog-nome-do-post.jpg"
 ```
 
-O mesmo fluxo também pode ser executado com `node scripts/add-blog-post.js --file "caminho/do/novo-post.txt"`.
+O mesmo fluxo também pode ser executado com `node scripts/add-blog-post.js --file "caminho/do/novo-post.txt" --image "/assets/img/blog-nome-do-post.jpg"`.
 
 O comando faz tudo automaticamente:
 
@@ -49,7 +49,7 @@ Opções disponíveis:
 - `--deck "Abertura"`: texto de abertura do artigo;
 - `--slug "url-do-artigo"`: endereço personalizado.
 
-Sem essas opções, o comando aplica padrões prontos para conteúdo sobre BESS.
+A imagem é obrigatória e deve ser exclusiva do artigo. Quando o usuário não enviar uma imagem junto com o texto, use a skill `publicar-post-blog-mlc` em `.agents/skills/` para gerar uma nova capa antes da publicação. As demais opções recebem padrões adequados para conteúdo sobre BESS.
 
 ## Formatação opcional do texto
 
