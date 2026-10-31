@@ -6,6 +6,6 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Cache-Control: public, max-age=0, must-revalidate
 
-# Assets imutáveis (logo, imagens, css, js) — cache longo no browser/CDN
-/assets/*
+# Imagens estáticas — cache longo no browser/CDN
+/assets/img/*
   Cache-Control: public, max-age=31536000, immutable

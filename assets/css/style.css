@@ -807,7 +807,6 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 .rental-equipment--2{grid-template-columns:repeat(2,1fr);}
 .rental-equipment--3{grid-template-columns:repeat(3,1fr);}
 .rental-equipment--4{grid-template-columns:repeat(4,1fr);}
-.rental-equipment--5{grid-template-columns:repeat(5,1fr);}
 .rental-equipment > div{position:relative; padding:17px 18px 16px 22px; background:#fff;}
 .rental-equipment > div + div{border-left:1px solid var(--line);}
 .rental-equipment > div::before{
@@ -842,9 +841,9 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
   .rental-band-head{align-items:flex-start; flex-direction:column; gap:10px;}
   .rental-band-head > p{text-align:left; padding-left:57px;}
   .rental-band-media{min-height:220px; aspect-ratio:16/7;}
-  .rental-equipment--4,.rental-equipment--5{grid-template-columns:repeat(2,1fr);}
-  .rental-equipment--4 > div:nth-child(odd),.rental-equipment--5 > div:nth-child(odd){border-left:0;}
-  .rental-equipment--4 > div:nth-child(n+3),.rental-equipment--5 > div:nth-child(n+3){border-top:1px solid var(--line);}
+  .rental-equipment--4{grid-template-columns:repeat(2,1fr);}
+  .rental-equipment--4 > div:nth-child(odd){border-left:0;}
+  .rental-equipment--4 > div:nth-child(n+3){border-top:1px solid var(--line);}
 }
 @media (max-width:560px){
   .hero--lease{
@@ -859,7 +858,7 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
   .rental-band-number{width:36px; height:36px; border-radius:10px;}
   .rental-band-head > p{padding-left:51px; font-size:13px;}
   .rental-band-media{min-height:145px; aspect-ratio:16/7; border-radius:11px;}
-  .rental-equipment--2,.rental-equipment--3,.rental-equipment--4,.rental-equipment--5{grid-template-columns:1fr;}
+  .rental-equipment--2,.rental-equipment--3,.rental-equipment--4{grid-template-columns:1fr;}
   .rental-equipment > div + div{border-left:0; border-top:1px solid var(--line);}
   .rental-equipment--4 > div:nth-child(3){border-top:1px solid var(--line);}
   .rental-carousel-controls{gap:7px; margin-top:18px;}
