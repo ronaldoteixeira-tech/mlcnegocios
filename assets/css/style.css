@@ -756,6 +756,87 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 }
 
 /* LEASING PAGE */
+.hero--lease{
+  background:
+    linear-gradient(100deg,rgba(5,33,58,.97) 0%,rgba(5,33,58,.88) 34%,rgba(5,33,58,.5) 56%,rgba(5,33,58,.08) 82%),
+    url("../img/locacao-hero-v1.jpg") center/cover no-repeat;
+}
+.rental-showcase{
+  position:relative; overflow:hidden; padding-top:104px;
+  background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+}
+.rental-showcase::before{
+  content:""; position:absolute; width:520px; height:520px; border-radius:50%;
+  top:70px; right:-260px; background:rgba(12,175,235,.08); filter:blur(2px); pointer-events:none;
+}
+.rental-showcase .section-head{position:relative; z-index:1;}
+.rental-showcase .section-head h2{font-size:clamp(30px,4.2vw,48px); line-height:1.14;}
+.rental-bands{display:flex; flex-direction:column; gap:28px; position:relative; z-index:1;}
+.rental-band{
+  padding:28px; border:1px solid var(--line); border-radius:22px; background:rgba(255,255,255,.9);
+  box-shadow:0 22px 70px -42px rgba(11,64,111,.42); overflow:hidden;
+}
+.rental-band-head{display:flex; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:22px;}
+.rental-band-head > div{display:flex; align-items:center; gap:15px; min-width:0;}
+.rental-band-number{
+  width:42px; height:42px; border-radius:12px; flex:none; display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--navy),var(--secondary)); color:#fff;
+  font-family:var(--font-mono); font-size:12px; font-weight:700; letter-spacing:.08em;
+}
+.rental-band h3{font-size:clamp(22px,2.8vw,31px); line-height:1.2; color:var(--ink);}
+.rental-band-head > p{max-width:430px; color:var(--muted); font-size:14px; text-align:right;}
+.rental-band-media{
+  margin:0; min-height:260px; aspect-ratio:17/6; border-radius:15px; overflow:hidden;
+  background:var(--bg-soft); border:1px solid var(--line);
+}
+.rental-band-media img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease);}
+.rental-band:hover .rental-band-media img{transform:scale(1.018);}
+.rental-equipment{display:grid; gap:0; margin-top:18px; border:1px solid var(--line); border-radius:13px; overflow:hidden;}
+.rental-equipment--2{grid-template-columns:repeat(2,1fr);}
+.rental-equipment--3{grid-template-columns:repeat(3,1fr);}
+.rental-equipment--4{grid-template-columns:repeat(4,1fr);}
+.rental-equipment > div{position:relative; padding:17px 18px 16px 22px; background:#fff;}
+.rental-equipment > div + div{border-left:1px solid var(--line);}
+.rental-equipment > div::before{
+  content:""; position:absolute; left:11px; top:22px; width:4px; height:4px; border-radius:50%; background:var(--secondary);
+}
+.rental-equipment b{display:block; font-size:13px; color:var(--ink);}
+.rental-equipment div span{display:block; margin-top:3px; color:var(--muted); font-size:11.5px; line-height:1.45;}
+.rental-equipment--tags{display:flex; flex-wrap:wrap; gap:8px; border:0; border-radius:0; overflow:visible;}
+.rental-equipment--tags span{
+  padding:8px 12px; border-radius:999px; background:var(--primary50); border:1px solid #CEE6FA;
+  color:var(--navy-2); font-size:11.5px; font-weight:700;
+}
+.rental-disclaimer{margin-top:12px; color:var(--muted-2); font-size:10.5px; font-style:italic; text-align:right;}
+@media (max-width:800px){
+  .rental-band{padding:22px;}
+  .rental-band-head{align-items:flex-start; flex-direction:column; gap:10px;}
+  .rental-band-head > p{text-align:left; padding-left:57px;}
+  .rental-band-media{min-height:220px; aspect-ratio:16/7;}
+  .rental-equipment--4{grid-template-columns:repeat(2,1fr);}
+  .rental-equipment--4 > div:nth-child(3){border-left:0; border-top:1px solid var(--line);}
+  .rental-equipment--4 > div:nth-child(4){border-top:1px solid var(--line);}
+}
+@media (max-width:560px){
+  .hero--lease{
+    background:
+      linear-gradient(180deg,rgba(5,33,58,.9) 0%,rgba(5,33,58,.82) 58%,rgba(5,33,58,.72) 100%),
+      url("../img/locacao-hero-v1.jpg") 58% center/cover no-repeat;
+  }
+  .rental-showcase{padding-top:78px;}
+  .rental-bands{gap:20px;}
+  .rental-band{padding:16px; border-radius:17px;}
+  .rental-band-head > div{align-items:flex-start;}
+  .rental-band h3{font-size:20px; overflow-wrap:anywhere;}
+  .rental-band-number{width:36px; height:36px; border-radius:10px;}
+  .rental-band-head > p{padding-left:51px; font-size:13px;}
+  .rental-band-media{min-height:145px; aspect-ratio:16/7; border-radius:11px;}
+  .rental-equipment--2,.rental-equipment--3,.rental-equipment--4{grid-template-columns:1fr;}
+  .rental-equipment > div + div{border-left:0; border-top:1px solid var(--line);}
+  .rental-equipment--4 > div:nth-child(3){border-top:1px solid var(--line);}
+  .rental-disclaimer{text-align:left;}
+}
+
 .lease-fit{padding-top:96px;}
 .lease-fit-grid{display:grid; grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr); gap:44px; align-items:center;}
 .lease-fit-content .eyebrow{color:#fff;}
