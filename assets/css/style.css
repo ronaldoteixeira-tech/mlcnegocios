@@ -824,10 +824,6 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 }
 .rental-carousel-button:hover{transform:translateY(-2px); border-color:var(--navy); background:var(--primary50);}
 .rental-carousel-button svg{width:20px; height:20px; flex:none;}
-.rental-carousel-pause{min-width:106px;}
-.rental-carousel-pause .play-icon{display:none;}
-.rental-carousel-pause[aria-pressed="true"] .pause-icon{display:none;}
-.rental-carousel-pause[aria-pressed="true"] .play-icon{display:block;}
 .rental-carousel-dots{display:flex; align-items:center; gap:7px; padding:0 4px;}
 .rental-carousel-dots button{
   width:10px; height:10px; padding:0; border:0; border-radius:50%; background:var(--line-strong);
@@ -863,8 +859,6 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
   .rental-equipment--4 > div:nth-child(3){border-top:1px solid var(--line);}
   .rental-carousel-controls{gap:7px; margin-top:18px;}
   .rental-carousel-button{min-width:42px; height:42px; padding:0 10px;}
-  .rental-carousel-pause{min-width:42px; width:42px;}
-  .rental-carousel-pause span{display:none;}
   .rental-carousel-dots{gap:5px;}
   .rental-carousel-dots button[aria-current="true"]{width:22px;}
   .rental-disclaimer{text-align:left;}

@@ -95,8 +95,6 @@
     var rentalOriginals = Array.prototype.slice.call(rentalTrack.children);
     var rentalPrev = rentalCarousel.querySelector("[data-rental-prev]");
     var rentalNext = rentalCarousel.querySelector("[data-rental-next]");
-    var rentalPause = rentalCarousel.querySelector("[data-rental-pause]");
-    var rentalPauseLabel = rentalCarousel.querySelector("[data-rental-pause-label]");
     var rentalDots = Array.prototype.slice.call(rentalCarousel.querySelectorAll("[data-rental-dot]"));
     var rentalStatus = rentalCarousel.querySelector("[data-rental-status]");
 
@@ -113,7 +111,6 @@
       var rentalPosition = 1;
       var rentalLogical = 0;
       var rentalBusy = false;
-      var rentalUserPaused = reduceMotion;
       var rentalTimer = null;
       var rentalStartX = 0;
       var rentalDeltaX = 0;
@@ -155,8 +152,8 @@
       }
       function rentalStartTimer(){
         rentalStopTimer();
-        if (!rentalUserPaused && !document.hidden){
-          rentalTimer = window.setInterval(function(){ rentalMove(1,false); },6000);
+        if (!reduceMotion && !document.hidden){
+          rentalTimer = window.setInterval(function(){ rentalMove(1,false); },5000);
         }
       }
       function rentalMove(direction,announce){
@@ -177,15 +174,6 @@
         rentalSetTransform(true);
         rentalStartTimer();
       }
-      function rentalTogglePause(){
-        rentalUserPaused = !rentalUserPaused;
-        rentalPause.setAttribute("aria-pressed",rentalUserPaused ? "true" : "false");
-        rentalPause.setAttribute("aria-label",rentalUserPaused ? "Retomar rotação automática" : "Pausar rotação automática");
-        rentalPauseLabel.textContent = rentalUserPaused ? "Retomar" : "Pausar";
-        rentalStatus.textContent = rentalUserPaused ? "Rotação automática pausada." : "Rotação automática retomada.";
-        if (rentalUserPaused) rentalStopTimer(); else rentalStartTimer();
-      }
-
       rentalTrack.addEventListener("transitionend",function(event){
         if (event.propertyName !== "transform") return;
         if (rentalPosition === 0){ rentalPosition = rentalCount; rentalSetTransform(false); }
@@ -195,7 +183,6 @@
       });
       rentalPrev.addEventListener("click",function(){ rentalMove(-1,true); });
       rentalNext.addEventListener("click",function(){ rentalMove(1,true); });
-      rentalPause.addEventListener("click",rentalTogglePause);
       rentalDots.forEach(function(dot){
         dot.addEventListener("click",function(){ rentalGoTo(parseInt(dot.getAttribute("data-rental-dot"),10)); });
       });
@@ -241,11 +228,6 @@
         rentalOriginals.forEach(function(slide){ rentalResizeObserver.observe(slide); });
       }
 
-      if (reduceMotion){
-        rentalPause.setAttribute("aria-pressed","true");
-        rentalPause.setAttribute("aria-label","Retomar rotação automática");
-        rentalPauseLabel.textContent = "Retomar";
-      }
       rentalUpdateUi(false);
       rentalSetTransform(false);
       rentalStartTimer();
