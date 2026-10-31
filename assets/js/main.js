@@ -88,6 +88,170 @@
     updateBlogControls();
   }
 
+  var rentalCarousel = document.getElementById("rentalCarousel");
+  if (rentalCarousel){
+    var rentalViewport = document.getElementById("rentalCarouselViewport");
+    var rentalTrack = rentalCarousel.querySelector(".rental-bands");
+    var rentalOriginals = Array.prototype.slice.call(rentalTrack.children);
+    var rentalPrev = rentalCarousel.querySelector("[data-rental-prev]");
+    var rentalNext = rentalCarousel.querySelector("[data-rental-next]");
+    var rentalPause = rentalCarousel.querySelector("[data-rental-pause]");
+    var rentalPauseLabel = rentalCarousel.querySelector("[data-rental-pause-label]");
+    var rentalDots = Array.prototype.slice.call(rentalCarousel.querySelectorAll("[data-rental-dot]"));
+    var rentalStatus = rentalCarousel.querySelector("[data-rental-status]");
+
+    if (rentalOriginals.length > 1){
+      var rentalCount = rentalOriginals.length;
+      var rentalFirstClone = rentalOriginals[0].cloneNode(true);
+      var rentalLastClone = rentalOriginals[rentalCount - 1].cloneNode(true);
+      rentalFirstClone.setAttribute("aria-hidden","true");
+      rentalLastClone.setAttribute("aria-hidden","true");
+      rentalTrack.insertBefore(rentalLastClone,rentalOriginals[0]);
+      rentalTrack.appendChild(rentalFirstClone);
+
+      var rentalSlides = Array.prototype.slice.call(rentalTrack.children);
+      var rentalPosition = 1;
+      var rentalLogical = 0;
+      var rentalBusy = false;
+      var rentalUserPaused = reduceMotion;
+      var rentalTimer = null;
+      var rentalStartX = 0;
+      var rentalDeltaX = 0;
+      var rentalDragging = false;
+
+      function rentalWidth(){ return rentalViewport.clientWidth; }
+      function rentalSetTransform(animate){
+        var shouldAnimate = animate && !reduceMotion;
+        rentalTrack.classList.toggle("is-jumping",!shouldAnimate);
+        if (!shouldAnimate && rentalBusy){
+          if (rentalPosition === 0) rentalPosition = rentalCount;
+          if (rentalPosition === rentalCount + 1) rentalPosition = 1;
+          rentalBusy = false;
+        }
+        rentalTrack.style.transform = "translate3d(" + (-rentalPosition * rentalWidth()) + "px,0,0)";
+        window.requestAnimationFrame(rentalUpdateHeight);
+      }
+      function rentalUpdateHeight(){
+        var active = rentalSlides[rentalPosition];
+        if (active) rentalViewport.style.height = active.offsetHeight + "px";
+      }
+      function rentalUpdateUi(announce){
+        rentalDots.forEach(function(dot,index){
+          dot.setAttribute("aria-current",index === rentalLogical ? "true" : "false");
+        });
+        rentalOriginals.forEach(function(slide,index){
+          slide.setAttribute("aria-hidden",index === rentalLogical ? "false" : "true");
+          slide.setAttribute("role","group");
+          slide.setAttribute("aria-roledescription","slide");
+          slide.setAttribute("aria-label",(index + 1) + " de " + rentalCount);
+        });
+        if (announce){
+          var heading = rentalOriginals[rentalLogical].querySelector("h3");
+          rentalStatus.textContent = "Faixa " + (rentalLogical + 1) + " de " + rentalCount + ": " + (heading ? heading.textContent : "");
+        }
+      }
+      function rentalStopTimer(){
+        if (rentalTimer){ window.clearInterval(rentalTimer); rentalTimer = null; }
+      }
+      function rentalStartTimer(){
+        rentalStopTimer();
+        if (!rentalUserPaused && !document.hidden){
+          rentalTimer = window.setInterval(function(){ rentalMove(1,false); },6000);
+        }
+      }
+      function rentalMove(direction,announce){
+        if (rentalBusy) return;
+        rentalBusy = true;
+        rentalPosition += direction;
+        rentalLogical = (rentalLogical + direction + rentalCount) % rentalCount;
+        rentalUpdateUi(announce);
+        rentalSetTransform(true);
+        rentalStartTimer();
+      }
+      function rentalGoTo(index){
+        if (rentalBusy || index === rentalLogical) return;
+        rentalBusy = true;
+        rentalLogical = index;
+        rentalPosition = index + 1;
+        rentalUpdateUi(true);
+        rentalSetTransform(true);
+        rentalStartTimer();
+      }
+      function rentalTogglePause(){
+        rentalUserPaused = !rentalUserPaused;
+        rentalPause.setAttribute("aria-pressed",rentalUserPaused ? "true" : "false");
+        rentalPause.setAttribute("aria-label",rentalUserPaused ? "Retomar rotação automática" : "Pausar rotação automática");
+        rentalPauseLabel.textContent = rentalUserPaused ? "Retomar" : "Pausar";
+        rentalStatus.textContent = rentalUserPaused ? "Rotação automática pausada." : "Rotação automática retomada.";
+        if (rentalUserPaused) rentalStopTimer(); else rentalStartTimer();
+      }
+
+      rentalTrack.addEventListener("transitionend",function(event){
+        if (event.propertyName !== "transform") return;
+        if (rentalPosition === 0){ rentalPosition = rentalCount; rentalSetTransform(false); }
+        if (rentalPosition === rentalCount + 1){ rentalPosition = 1; rentalSetTransform(false); }
+        rentalBusy = false;
+        rentalUpdateHeight();
+      });
+      rentalPrev.addEventListener("click",function(){ rentalMove(-1,true); });
+      rentalNext.addEventListener("click",function(){ rentalMove(1,true); });
+      rentalPause.addEventListener("click",rentalTogglePause);
+      rentalDots.forEach(function(dot){
+        dot.addEventListener("click",function(){ rentalGoTo(parseInt(dot.getAttribute("data-rental-dot"),10)); });
+      });
+      rentalCarousel.addEventListener("keydown",function(event){
+        if (event.key === "ArrowLeft"){ event.preventDefault(); rentalMove(-1,true); }
+        if (event.key === "ArrowRight"){ event.preventDefault(); rentalMove(1,true); }
+      });
+      rentalViewport.addEventListener("pointerdown",function(event){
+        if (event.button !== 0 || rentalBusy) return;
+        rentalDragging = true; rentalStartX = event.clientX; rentalDeltaX = 0;
+        rentalViewport.classList.add("is-dragging");
+        rentalTrack.classList.add("is-jumping");
+        rentalViewport.setPointerCapture(event.pointerId);
+        rentalStopTimer();
+      });
+      rentalViewport.addEventListener("pointermove",function(event){
+        if (!rentalDragging) return;
+        rentalDeltaX = event.clientX - rentalStartX;
+        rentalTrack.style.transform = "translate3d(" + ((-rentalPosition * rentalWidth()) + rentalDeltaX) + "px,0,0)";
+      });
+      function rentalEndDrag(event){
+        if (!rentalDragging) return;
+        rentalDragging = false;
+        rentalViewport.classList.remove("is-dragging");
+        if (rentalViewport.hasPointerCapture(event.pointerId)) rentalViewport.releasePointerCapture(event.pointerId);
+        var threshold = Math.min(90,rentalWidth() * .16);
+        if (Math.abs(rentalDeltaX) > threshold) rentalMove(rentalDeltaX < 0 ? 1 : -1,true);
+        else { rentalSetTransform(true); rentalStartTimer(); }
+      }
+      rentalViewport.addEventListener("pointerup",rentalEndDrag);
+      rentalViewport.addEventListener("pointercancel",rentalEndDrag);
+      rentalCarousel.addEventListener("mouseenter",rentalStopTimer);
+      rentalCarousel.addEventListener("mouseleave",rentalStartTimer);
+      rentalCarousel.addEventListener("focusin",rentalStopTimer);
+      rentalCarousel.addEventListener("focusout",function(event){ if (!rentalCarousel.contains(event.relatedTarget)) rentalStartTimer(); });
+      document.addEventListener("visibilitychange",function(){ if (document.hidden) rentalStopTimer(); else rentalStartTimer(); });
+      window.addEventListener("resize",function(){ rentalSetTransform(false); },{passive:true});
+      rentalTrack.querySelectorAll("img").forEach(function(image){
+        if (!image.complete) image.addEventListener("load",rentalUpdateHeight,{once:true});
+      });
+      if ("ResizeObserver" in window){
+        var rentalResizeObserver = new ResizeObserver(rentalUpdateHeight);
+        rentalOriginals.forEach(function(slide){ rentalResizeObserver.observe(slide); });
+      }
+
+      if (reduceMotion){
+        rentalPause.setAttribute("aria-pressed","true");
+        rentalPause.setAttribute("aria-label","Retomar rotação automática");
+        rentalPauseLabel.textContent = "Retomar";
+      }
+      rentalUpdateUi(false);
+      rentalSetTransform(false);
+      rentalStartTimer();
+    }
+  }
+
   var form = document.getElementById("contactForm");
   if (form){
     var status = document.getElementById("formStatus");

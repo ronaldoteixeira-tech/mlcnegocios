@@ -771,10 +771,22 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 }
 .rental-showcase .section-head{position:relative; z-index:1;}
 .rental-showcase .section-head h2{font-size:clamp(30px,4.2vw,48px); line-height:1.14;}
-.rental-bands{display:flex; flex-direction:column; gap:28px; position:relative; z-index:1;}
+.rental-carousel{position:relative; z-index:1; outline:none;}
+.rental-carousel:focus-visible{border-radius:24px; outline:2px solid var(--navy); outline-offset:7px;}
+.rental-carousel-viewport{
+  overflow:hidden; border-radius:22px; transition:height .45s var(--ease); touch-action:pan-y pinch-zoom;
+  box-shadow:0 22px 70px -42px rgba(11,64,111,.42);
+}
+.rental-carousel-viewport.is-dragging{cursor:grabbing;}
+.rental-bands{
+  display:flex; position:relative; z-index:1; will-change:transform;
+  transition:transform .7s var(--ease);
+}
+.rental-bands.is-jumping{transition:none;}
 .rental-band{
+  flex:0 0 100%; width:100%; min-width:0;
   padding:28px; border:1px solid var(--line); border-radius:22px; background:rgba(255,255,255,.9);
-  box-shadow:0 22px 70px -42px rgba(11,64,111,.42); overflow:hidden;
+  overflow:hidden;
 }
 .rental-band-head{display:flex; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:22px;}
 .rental-band-head > div{display:flex; align-items:center; gap:15px; min-width:0;}
@@ -795,6 +807,7 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 .rental-equipment--2{grid-template-columns:repeat(2,1fr);}
 .rental-equipment--3{grid-template-columns:repeat(3,1fr);}
 .rental-equipment--4{grid-template-columns:repeat(4,1fr);}
+.rental-equipment--5{grid-template-columns:repeat(5,1fr);}
 .rental-equipment > div{position:relative; padding:17px 18px 16px 22px; background:#fff;}
 .rental-equipment > div + div{border-left:1px solid var(--line);}
 .rental-equipment > div::before{
@@ -802,20 +815,36 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
 }
 .rental-equipment b{display:block; font-size:13px; color:var(--ink);}
 .rental-equipment div span{display:block; margin-top:3px; color:var(--muted); font-size:11.5px; line-height:1.45;}
-.rental-equipment--tags{display:flex; flex-wrap:wrap; gap:8px; border:0; border-radius:0; overflow:visible;}
-.rental-equipment--tags span{
-  padding:8px 12px; border-radius:999px; background:var(--primary50); border:1px solid #CEE6FA;
-  color:var(--navy-2); font-size:11.5px; font-weight:700;
+.rental-carousel-controls{
+  display:flex; align-items:center; justify-content:center; gap:10px; margin-top:24px;
 }
+.rental-carousel-button{
+  min-width:44px; height:44px; padding:0 12px; border-radius:12px; border:1px solid var(--line-strong);
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; background:#fff; color:var(--navy);
+  font-size:12px; font-weight:700; transition:transform .25s var(--ease),border-color .25s,background .25s;
+}
+.rental-carousel-button:hover{transform:translateY(-2px); border-color:var(--navy); background:var(--primary50);}
+.rental-carousel-button svg{width:20px; height:20px; flex:none;}
+.rental-carousel-pause{min-width:106px;}
+.rental-carousel-pause .play-icon{display:none;}
+.rental-carousel-pause[aria-pressed="true"] .pause-icon{display:none;}
+.rental-carousel-pause[aria-pressed="true"] .play-icon{display:block;}
+.rental-carousel-dots{display:flex; align-items:center; gap:7px; padding:0 4px;}
+.rental-carousel-dots button{
+  width:10px; height:10px; padding:0; border:0; border-radius:50%; background:var(--line-strong);
+  transition:width .3s var(--ease),background .3s var(--ease); cursor:pointer;
+}
+.rental-carousel-dots button[aria-current="true"]{width:28px; border-radius:999px; background:linear-gradient(90deg,var(--navy),var(--secondary));}
+.sr-only{position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important;}
 .rental-disclaimer{margin-top:12px; color:var(--muted-2); font-size:10.5px; font-style:italic; text-align:right;}
 @media (max-width:800px){
   .rental-band{padding:22px;}
   .rental-band-head{align-items:flex-start; flex-direction:column; gap:10px;}
   .rental-band-head > p{text-align:left; padding-left:57px;}
   .rental-band-media{min-height:220px; aspect-ratio:16/7;}
-  .rental-equipment--4{grid-template-columns:repeat(2,1fr);}
-  .rental-equipment--4 > div:nth-child(3){border-left:0; border-top:1px solid var(--line);}
-  .rental-equipment--4 > div:nth-child(4){border-top:1px solid var(--line);}
+  .rental-equipment--4,.rental-equipment--5{grid-template-columns:repeat(2,1fr);}
+  .rental-equipment--4 > div:nth-child(odd),.rental-equipment--5 > div:nth-child(odd){border-left:0;}
+  .rental-equipment--4 > div:nth-child(n+3),.rental-equipment--5 > div:nth-child(n+3){border-top:1px solid var(--line);}
 }
 @media (max-width:560px){
   .hero--lease{
@@ -824,16 +853,21 @@ nav.mainnav a:hover::after, nav.mainnav a.active::after{width:100%;}
       url("../img/locacao-hero-v1.jpg") 58% center/cover no-repeat;
   }
   .rental-showcase{padding-top:78px;}
-  .rental-bands{gap:20px;}
   .rental-band{padding:16px; border-radius:17px;}
   .rental-band-head > div{align-items:flex-start;}
   .rental-band h3{font-size:20px; overflow-wrap:anywhere;}
   .rental-band-number{width:36px; height:36px; border-radius:10px;}
   .rental-band-head > p{padding-left:51px; font-size:13px;}
   .rental-band-media{min-height:145px; aspect-ratio:16/7; border-radius:11px;}
-  .rental-equipment--2,.rental-equipment--3,.rental-equipment--4{grid-template-columns:1fr;}
+  .rental-equipment--2,.rental-equipment--3,.rental-equipment--4,.rental-equipment--5{grid-template-columns:1fr;}
   .rental-equipment > div + div{border-left:0; border-top:1px solid var(--line);}
   .rental-equipment--4 > div:nth-child(3){border-top:1px solid var(--line);}
+  .rental-carousel-controls{gap:7px; margin-top:18px;}
+  .rental-carousel-button{min-width:42px; height:42px; padding:0 10px;}
+  .rental-carousel-pause{min-width:42px; width:42px;}
+  .rental-carousel-pause span{display:none;}
+  .rental-carousel-dots{gap:5px;}
+  .rental-carousel-dots button[aria-current="true"]{width:22px;}
   .rental-disclaimer{text-align:left;}
 }
 

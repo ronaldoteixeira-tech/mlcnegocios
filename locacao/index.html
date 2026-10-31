@@ -84,8 +84,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="lede">Encontre a solução adequada para cada necessidade, do fornecimento de energia à operação industrial.</p>
     </div>
 
-    <div class="rental-bands">
-      <article class="rental-band reveal">
+    <div class="rental-carousel reveal" id="rentalCarousel" role="region" aria-roledescription="carrossel" aria-label="Categorias de equipamentos para locação" tabindex="0">
+      <div class="rental-carousel-viewport" id="rentalCarouselViewport">
+        <div class="rental-bands">
+      <article class="rental-band">
         <div class="rental-band-head">
           <div>
             <span class="rental-band-number">01</span>
@@ -104,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="rental-disclaimer">Imagens meramente ilustrativas.</p>
       </article>
 
-      <article class="rental-band reveal">
+      <article class="rental-band">
         <div class="rental-band-head">
           <div>
             <span class="rental-band-number">02</span>
@@ -122,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="rental-disclaimer">Imagens meramente ilustrativas.</p>
       </article>
 
-      <article class="rental-band reveal">
+      <article class="rental-band">
         <div class="rental-band-head">
           <div>
             <span class="rental-band-number">03</span>
@@ -142,7 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="rental-disclaimer">Imagens meramente ilustrativas.</p>
       </article>
 
-      <article class="rental-band reveal">
+      <article class="rental-band">
         <div class="rental-band-head">
           <div>
             <span class="rental-band-number">04</span>
@@ -153,15 +155,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <figure class="rental-band-media">
           <img src="/assets/img/locacao-industria-v1.jpg" alt="Linha industrial de envase, selagem e embalagem" loading="lazy" />
         </figure>
-        <div class="rental-equipment rental-equipment--tags" aria-label="Tipos de equipamentos industriais">
-          <span>Linhas de envase</span>
-          <span>Envasadoras</span>
-          <span>Seladoras</span>
-          <span>Flow packs</span>
-          <span>Embaladoras industriais</span>
+        <div class="rental-equipment rental-equipment--5">
+          <div><b>Linhas de envase</b><span>Produção contínua em escala.</span></div>
+          <div><b>Envasadoras</b><span>Precisão no preenchimento.</span></div>
+          <div><b>Seladoras</b><span>Fechamento seguro de embalagens.</span></div>
+          <div><b>Flow packs</b><span>Embalagem contínua de produtos.</span></div>
+          <div><b>Embaladoras industriais</b><span>Automação para diferentes operações.</span></div>
         </div>
         <p class="rental-disclaimer">Imagens meramente ilustrativas.</p>
       </article>
+        </div>
+      </div>
+      <div class="rental-carousel-controls" aria-label="Controles do carrossel">
+        <button class="rental-carousel-button" type="button" data-rental-prev aria-label="Faixa anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="rental-carousel-dots" role="group" aria-label="Selecionar faixa">
+          <button type="button" data-rental-dot="0" aria-label="Ir para Soluções para energia" aria-current="true"></button>
+          <button type="button" data-rental-dot="1" aria-label="Ir para Movimentação de cargas"></button>
+          <button type="button" data-rental-dot="2" aria-label="Ir para Equipamentos para construção"></button>
+          <button type="button" data-rental-dot="3" aria-label="Ir para Equipamentos industriais"></button>
+        </div>
+        <button class="rental-carousel-button rental-carousel-pause" type="button" data-rental-pause aria-label="Pausar rotação automática" aria-pressed="false">
+          <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+          <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span data-rental-pause-label>Pausar</span>
+        </button>
+        <button class="rental-carousel-button" type="button" data-rental-next aria-label="Próxima faixa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <p class="sr-only" data-rental-status aria-live="polite"></p>
     </div>
   </div>
 </section>
