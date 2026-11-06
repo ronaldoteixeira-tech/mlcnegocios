@@ -53,7 +53,7 @@ function renderArticle(post, template) {
           </aside>`
     : "";
 
-  return replaceTokens(template, {
+  const html = replaceTokens(template, {
     ARTICLE_LAYOUT_CLASS: rendered.headings.length ? "article-layout" : "article-layout article-layout--without-toc",
     CATEGORY: escapeHtml(post.category),
     CONTENT: rendered.html,
@@ -68,6 +68,11 @@ function renderArticle(post, template) {
     TITLE: escapeHtml(post.title),
     TOC: toc
   });
+
+  return html.replace(
+    /(<div class="article-layout article-layout--without-toc">)\r?\n[ \t]*\r?\n([ \t]*<div class="article-body">)/,
+    "$1\n\n$2"
+  );
 }
 
 function updateIndex(posts) {

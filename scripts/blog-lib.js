@@ -34,7 +34,17 @@ function parseFrontMatter(source, filename) {
     if (separator === -1) throw new Error(`${filename}: metadado inválido: ${line}`);
     const key = line.slice(0, separator).trim();
     const value = line.slice(separator + 1).trim();
-    metadata[key] = value;
+    if (value.startsWith('"') && value.endsWith('"')) {
+      try {
+        metadata[key] = JSON.parse(value);
+      } catch {
+        metadata[key] = value.slice(1, -1);
+      }
+    } else if (value.startsWith("'") && value.endsWith("'")) {
+      metadata[key] = value.slice(1, -1).replace(/''/g, "'");
+    } else {
+      metadata[key] = value;
+    }
   });
 
   const required = ["title", "slug", "date", "category", "excerpt", "description", "deck", "image", "imageAlt"];
