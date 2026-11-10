@@ -4,9 +4,9 @@ on:
   schedule:
     # Horários UTC. Em novembro, 11:00 UTC = 08:00 em São Paulo.
     # A tentativa das 10:45 aguarda até 08:00; as demais recuperam atrasos do GitHub.
-    - cron: "45 10 13,20 11 *"
-    - cron: "0,10,20,30,40,50 11 13,20 11 *"
-    - cron: "0 12 13,20 11 *"
+    - cron: "45 10 13,20,27 11 *"
+    - cron: "0,10,20,30,40,50 11 13,20,27 11 *"
+    - cron: "0 12 13,20,27 11 *"
   workflow_dispatch:
 
 concurrency:
@@ -42,6 +42,7 @@ jobs:
           gh release download blog-agendado-2026-11 --pattern 'post-2026-11-*.zip' --dir "$RUNNER_TEMP/mlc-blog-pacotes"
           unzip -t "$RUNNER_TEMP/mlc-blog-pacotes/post-2026-11-13.zip"
           unzip -t "$RUNNER_TEMP/mlc-blog-pacotes/post-2026-11-20.zip"
+          unzip -t "$RUNNER_TEMP/mlc-blog-pacotes/post-2026-11-27.zip"
 
       - name: Publicar artigos no horário e conferir o site
         env:

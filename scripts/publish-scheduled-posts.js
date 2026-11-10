@@ -17,6 +17,12 @@ const posts = [
     image: "blog-armazenar-energia-futuro.webp",
     asset: "post-2026-11-20.zip",
     publishAt: "2026-11-20T08:00:00-03:00"
+  },
+  {
+    slug: "sistema-bess-evita-prejuizos-a-piscicultura",
+    image: "blog-bess-piscicultura.webp",
+    asset: "post-2026-11-27.zip",
+    publishAt: "2026-11-27T08:00:00-03:00"
   }
 ];
 
