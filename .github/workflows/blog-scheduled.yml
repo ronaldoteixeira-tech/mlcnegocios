@@ -1,0 +1,50 @@
+name: Publicar blogposts agendados
+
+on:
+  schedule:
+    # Horários UTC. Em novembro, 11:00 UTC = 08:00 em São Paulo.
+    # A tentativa das 10:45 aguarda até 08:00; as demais recuperam atrasos do GitHub.
+    - cron: "45 10 13,20 11 *"
+    - cron: "0,10,20,30,40,50 11 13,20 11 *"
+    - cron: "0 12 13,20 11 *"
+  workflow_dispatch:
+
+concurrency:
+  group: blog-agendado-main
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Baixar a branch de produção
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Conferir pacotes privados
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          test "$(gh release view blog-agendado-2026-11 --json isDraft --jq .isDraft)" = "true"
+          mkdir -p "$RUNNER_TEMP/mlc-blog-pacotes"
+          gh release download blog-agendado-2026-11 --pattern 'post-2026-11-*.zip' --dir "$RUNNER_TEMP/mlc-blog-pacotes"
+          unzip -t "$RUNNER_TEMP/mlc-blog-pacotes/post-2026-11-13.zip"
+          unzip -t "$RUNNER_TEMP/mlc-blog-pacotes/post-2026-11-20.zip"
+
+      - name: Publicar artigos no horário e conferir o site
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/publish-scheduled-posts.js
