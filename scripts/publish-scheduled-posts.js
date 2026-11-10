@@ -79,6 +79,10 @@ async function verifyPublished(duePosts) {
 async function main() {
   let now = process.env.BLOG_NOW ? new Date(process.env.BLOG_NOW) : new Date();
   if (!Number.isFinite(now.getTime())) throw new Error("BLOG_NOW inválido.");
+  if (now.getTime() >= Date.parse("2026-12-01T00:00:00-03:00")) {
+    console.log("Agenda de novembro de 2026 encerrada.");
+    return;
+  }
   const upcoming = posts.find((post) => {
     const remaining = Date.parse(post.publishAt) - now.getTime();
     return remaining > 0 && remaining <= 20 * 60 * 1000;
